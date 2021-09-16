@@ -111,10 +111,6 @@ export const NotionPage: React.FC<types.PageProps> = ({
 
   // const isRootPage =
   //   parsePageId(block.id) === parsePageId(site.rootNotionPageId)
-  const isBlogPost =
-    block.type === "page" && block.parent_table === "collection";
-  const showTableOfContents = !!isBlogPost;
-  const minTableOfContentsItems = 3;
 
   const socialImage = mapNotionImageUrl(
     (block as PageBlock).format?.page_cover || config.defaultPageCover,
@@ -123,9 +119,6 @@ export const NotionPage: React.FC<types.PageProps> = ({
 
   const socialDescription =
     getPageDescription(block, recordMap) ?? config.description;
-
-  let comments: React.ReactNode = null;
-  let pageAside: React.ReactChild = null;
 
   return (
     <>
@@ -212,16 +205,12 @@ export const NotionPage: React.FC<types.PageProps> = ({
         rootPageId={site.rootNotionPageId}
         previewImages={site.previewImages !== false}
         showCollectionViewDropdown={false}
-        showTableOfContents={showTableOfContents}
-        minTableOfContentsItems={minTableOfContentsItems}
         defaultPageIcon={config.defaultPageIcon}
         defaultPageCover={config.defaultPageCover}
         defaultPageCoverPosition={config.defaultPageCoverPosition}
         mapPageUrl={siteMapPageUrl}
         mapImageUrl={mapNotionImageUrl}
-        pageFooter={comments}
-        pageAside={pageAside}
-        footer={<Footer />}
+        pageFooter={<Footer />}
       />
     </>
   );
