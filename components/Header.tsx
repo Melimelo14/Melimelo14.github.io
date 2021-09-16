@@ -61,8 +61,9 @@ const PageLink: React.FC<{ siteMap: types.SiteMap; pageId: string }> = (
     siteMap.pageMap[uuid],
     new URLSearchParams()
   );
+  console.log(siteMap.pageMap, uuid);
   return (
-    <Link href={siteMapPageUrl(pageId)}>
+    <Link href={siteMapPageUrl(uuid)}>
       <a>
         {getBlockTitle(
           siteMap.pageMap[uuid].block[uuid].value,
