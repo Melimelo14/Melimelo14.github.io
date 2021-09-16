@@ -38,8 +38,7 @@ export async function getStaticPaths() {
         },
       }))
     ),
-    // paths: [],
-    fallback: true,
+    // fallback: true,
   };
 
   console.log(ret.paths);
