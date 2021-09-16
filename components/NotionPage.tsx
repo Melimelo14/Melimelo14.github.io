@@ -28,6 +28,7 @@ import { Loading } from "./Loading";
 import { Page404 } from "./Page404";
 import { PageHead } from "./PageHead";
 import { Footer } from "./Footer";
+import { Header } from "./Header";
 
 import styles from "./styles.module.css";
 
@@ -66,6 +67,7 @@ const Modal = dynamic(
 export const NotionPage: React.FC<types.PageProps> = ({
   site,
   recordMap,
+  siteMap,
   error,
   pageId,
 }) => {
@@ -80,13 +82,15 @@ export const NotionPage: React.FC<types.PageProps> = ({
   }
 
   const keys = Object.keys(recordMap?.block || {});
-  const block = recordMap?.block?.[keys[0]]?.value;
+  const page = recordMap?.block?.[keys[0]]?.value as PageBlock;
 
-  if (error || !site || !keys.length || !block) {
-    return <Page404 site={site} pageId={pageId} error={error} />;
+  if (error || !site || !keys.length || !page) {
+    return (
+      <Page404 site={site} pageId={pageId} error={error} siteMap={siteMap} />
+    );
   }
 
-  const title = getBlockTitle(block, recordMap) || site.name;
+  const title = getBlockTitle(page, recordMap) || site.name;
 
   console.log("notion page", {
     isDev: config.isDev,
@@ -101,7 +105,7 @@ export const NotionPage: React.FC<types.PageProps> = ({
     const g = window as any;
     g.pageId = pageId;
     g.recordMap = recordMap;
-    g.block = block;
+    g.block = page;
   }
 
   const siteMapPageUrl = mapPageUrl(site, recordMap, searchParams);
@@ -113,12 +117,14 @@ export const NotionPage: React.FC<types.PageProps> = ({
   //   parsePageId(block.id) === parsePageId(site.rootNotionPageId)
 
   const socialImage = mapNotionImageUrl(
-    (block as PageBlock).format?.page_cover || config.defaultPageCover,
-    block
+    page.format?.page_cover || config.defaultPageCover,
+    page
   );
 
   const socialDescription =
-    getPageDescription(block, recordMap) ?? config.description;
+    getPageDescription(page, recordMap) ?? config.description;
+
+  page.properties = { title: [[title]] };
 
   return (
     <>
@@ -167,10 +173,7 @@ export const NotionPage: React.FC<types.PageProps> = ({
       <CustomFont site={site} />
 
       <NotionRenderer
-        bodyClassName={cs(
-          styles.notion,
-          pageId === site.rootNotionPageId && "index-page"
-        )}
+        bodyClassName={cs(styles.notion)}
         components={{
           pageLink: ({
             href,
@@ -210,6 +213,7 @@ export const NotionPage: React.FC<types.PageProps> = ({
         defaultPageCoverPosition={config.defaultPageCoverPosition}
         mapPageUrl={siteMapPageUrl}
         mapImageUrl={mapNotionImageUrl}
+        pageHeader={<Header siteMap={siteMap} />}
         pageFooter={<Footer />}
       />
     </>

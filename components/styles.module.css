@@ -60,11 +60,6 @@
   padding: 0.5em;
 }
 
-.settings,
-.social {
-  user-select: none;
-}
-
 .settings a,
 .social a {
   cursor: pointer;

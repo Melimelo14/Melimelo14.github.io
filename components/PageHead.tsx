@@ -4,7 +4,7 @@ import * as types from "../lib/types";
 
 // TODO: remove duplication between PageHead and NotionPage Head
 
-export const PageHead: React.FC<types.PageProps> = ({ site }) => {
+export const PageHead: React.FC<{ site?: types.Site }> = ({ site }) => {
   return (
     <Head>
       <meta charSet="utf-8" />
