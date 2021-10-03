@@ -7,16 +7,16 @@ module.exports = {
   rootNotionSpaceId: null,
 
   // basic site info (required)
-  name: "Transitive Bullshit",
+  name: "Emilie Meot MTC",
   domain: "transitivebullsh.it",
-  author: "Travis Fischer",
+  author: "Emilie Meot",
 
   // open graph metadata (optional)
   description: "Example site description",
 
   // social usernames (optional)
   twitter: "transitive_bs",
-  linkedin: "fisch2",
+  linkedin: "emilie-meot",
 
   // default notion icon and cover images for site-wide consistency (optional)
   // page-specific values will override these site-wide defaults

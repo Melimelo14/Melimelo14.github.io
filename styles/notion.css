@@ -129,12 +129,6 @@
   }
 }
 
-@media only screen and (max-width: 600px) {
-  .notion-search-button {
-    display: none !important;
-  }
-}
-
 @media only screen and (max-width: 400px) {
   .notion-gallery-grid {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));

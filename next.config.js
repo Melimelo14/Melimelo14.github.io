@@ -8,4 +8,5 @@ module.exports = withBundleAnalyzer({
   async redirects() {
     return [];
   },
+  experimental: { esmExternals: true },
 });

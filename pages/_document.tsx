@@ -1,49 +1,53 @@
 import React from "react";
 import Document, { Html, Head, Main, NextScript } from "next/document";
-import { IconContext } from "react-icons";
 
 export default class MyDocument extends Document {
   render() {
     return (
-      <IconContext.Provider value={{ style: { verticalAlign: "middle" } }}>
-        <Html lang="en">
-          <Head>
-            <link rel="shortcut icon" href="/favicon.png" />
+      <Html lang="en">
+        <Head>
+          <meta charSet="utf-8" />
+          <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+          />
 
-            <link
-              rel="apple-touch-icon"
-              sizes="180x180"
-              href="/apple-touch-icon.png"
-            />
-            <link
-              rel="icon"
-              type="image/png"
-              sizes="96x96"
-              href="/favicon-96x96.png"
-            />
-            <link
-              rel="icon"
-              type="image/png"
-              sizes="32x32"
-              href="/favicon-32x32.png"
-            />
-            <link
-              rel="icon"
-              type="image/png"
-              sizes="16x16"
-              href="/favicon-16x16.png"
-            />
+          <link rel="shortcut icon" href="/favicon.png" />
 
-            <link rel="manifest" href="/manifest.json" />
-          </Head>
+          <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/apple-touch-icon.png"
+          />
+          <link
+            rel="icon"
+            type="image/png"
+            sizes="96x96"
+            href="/favicon-96x96.png"
+          />
+          <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/favicon-32x32.png"
+          />
+          <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/favicon-16x16.png"
+          />
 
-          <body>
-            <Main />
+          <link rel="manifest" href="/manifest.json" />
+        </Head>
 
-            <NextScript />
-          </body>
-        </Html>
-      </IconContext.Provider>
+        <body>
+          <Main />
+
+          <NextScript />
+        </body>
+      </Html>
     );
   }
 }

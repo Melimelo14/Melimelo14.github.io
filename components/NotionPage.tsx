@@ -1,5 +1,4 @@
 import * as React from "react";
-import Head from "next/head";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import cs from "classnames";
@@ -26,7 +25,7 @@ import * as config from "../lib/config";
 import { CustomFont } from "./CustomFont";
 import { Loading } from "./Loading";
 import { Page404 } from "./Page404";
-import { PageHead } from "./PageHead";
+import { SEO } from "./SEO";
 import { Footer } from "./Footer";
 import { Header } from "./Header";
 
@@ -128,49 +127,17 @@ export const NotionPage: React.FC<types.PageProps> = ({
 
   return (
     <>
-      <PageHead site={site} />
-
-      <Head>
-        <meta property="og:title" content={title} />
-        <meta property="og:site_name" content={site.name} />
-
-        <meta name="twitter:title" content={title} />
-        <meta property="twitter:domain" content={site.domain} />
-
-        {config.twitter && (
-          <meta name="twitter:creator" content={`@${config.twitter}`} />
-        )}
-
-        {socialDescription && (
-          <>
-            <meta name="description" content={socialDescription} />
-            <meta property="og:description" content={socialDescription} />
-            <meta name="twitter:description" content={socialDescription} />
-          </>
-        )}
-
-        {socialImage ? (
-          <>
-            <meta name="twitter:card" content="summary_large_image" />
-            <meta name="twitter:image" content={socialImage} />
-            <meta property="og:image" content={socialImage} />
-          </>
-        ) : (
-          <meta name="twitter:card" content="summary" />
-        )}
-
-        {canonicalPageUrl && (
-          <>
-            <link rel="canonical" href={canonicalPageUrl} />
-            <meta property="og:url" content={canonicalPageUrl} />
-            <meta property="twitter:url" content={canonicalPageUrl} />
-          </>
-        )}
-
-        <title>{title}</title>
-      </Head>
+      <SEO
+        site={site}
+        title={title}
+        description={socialDescription}
+        image={socialImage}
+        canonicalPageUrl={canonicalPageUrl}
+      />
 
       <CustomFont site={site} />
+
+      <Header siteMap={siteMap} />
 
       <NotionRenderer
         bodyClassName={cs(styles.notion)}
@@ -213,9 +180,10 @@ export const NotionPage: React.FC<types.PageProps> = ({
         defaultPageCoverPosition={config.defaultPageCoverPosition}
         mapPageUrl={siteMapPageUrl}
         mapImageUrl={mapNotionImageUrl}
-        pageHeader={<Header siteMap={siteMap} />}
-        pageFooter={<Footer />}
+        pageHeader={null}
+        pageFooter={null}
       />
+      <Footer />
     </>
   );
 };
