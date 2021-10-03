@@ -12,7 +12,7 @@ export const SEO: React.FC<{
 }> = ({ site, children, description, image, canonicalPageUrl, title }) => {
   return (
     <Head>
-      <meta name="theme-color" content="#EB625A" />
+      <meta name="theme-color" content="#b439df" />
       <meta property="og:type" content="website" />
 
       {title || site?.name ? (
