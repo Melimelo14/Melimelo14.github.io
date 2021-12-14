@@ -2,7 +2,11 @@ import React from "react";
 import * as types from "notion-types";
 import { getTextContent } from "notion-utils";
 
-import { Collection as NotionCollection, PageIcon } from "react-notion-x";
+import {
+  Collection as NotionCollection,
+  PageIcon,
+  CollectionViewProps,
+} from "react-notion-x";
 
 export const Collection: React.FC<{
   block: types.CollectionViewBlock | types.CollectionViewPageBlock;
@@ -56,17 +60,17 @@ export const Collection: React.FC<{
         collection={collection}
         collectionView={collectionView}
         collectionData={collectionData}
+        recordMap={recordMap}
+        padding={12}
+        width={100}
       />
     </div>
   );
 };
 
-const CollectionViewGallery: React.FC<CollectionViewProps> = ({
-  collection,
-  collectionView,
-  collectionData,
-  recordMap,
-}) => {
+const CollectionViewGallery: React.FC<
+  CollectionViewProps & { recordMap: types.ExtendedRecordMap }
+> = ({ collection, collectionView, collectionData, recordMap }) => {
   const {
     gallery_cover = { type: "none" },
     gallery_cover_size = "medium",
@@ -77,7 +81,7 @@ const CollectionViewGallery: React.FC<CollectionViewProps> = ({
 
   return (
     <div className="notion-gallery">
-      <div className="notion-gallery-view">
+      {/* <div className="notion-gallery-view">
         <div
           className={cs(
             "notion-gallery-grid",
@@ -101,7 +105,7 @@ const CollectionViewGallery: React.FC<CollectionViewProps> = ({
             );
           })}
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
