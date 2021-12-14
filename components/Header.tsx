@@ -11,7 +11,11 @@ export const Header: React.FC<{ siteMap: types.SiteMap }> = (props) => {
 
   return (
     <header className={styles.header}>
-      <h1>Emilie Meot MTC</h1>
+      <h1>
+        Emilie Meot
+        <br />
+        Praticienne en MTC
+      </h1>
       <nav aria-label="Main Menu">
         <ul role="menubar" id="menu-mtc-main-menu">
           <li>

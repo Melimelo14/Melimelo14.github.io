@@ -9,8 +9,8 @@ import { PageBlock } from "notion-types";
 import {
   NotionRenderer,
   Code,
-  Collection,
   CollectionRow,
+  Collection,
 } from "react-notion-x";
 
 // utils
@@ -28,6 +28,7 @@ import { Page404 } from "./Page404";
 import { SEO } from "./SEO";
 import { Footer } from "./Footer";
 import { Header } from "./Header";
+// import { Collection } from "./NotionCollection";
 
 import styles from "./styles.module.css";
 
@@ -167,7 +168,9 @@ export const NotionPage: React.FC<types.PageProps> = ({
             </Link>
           ),
           code: Code,
-          collection: Collection,
+          collection: (props) => (
+            <Collection {...props} recordMap={recordMap} />
+          ),
           collectionRow: CollectionRow,
           modal: Modal,
         }}

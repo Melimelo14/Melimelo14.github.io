@@ -191,8 +191,9 @@
 
 .notion-link:hover {
   border-width: 3px;
-  border-image: linear-gradient(90.68deg, #33d4de 0.26%, #00ffd1 102.37%);
-  border-image-slice: 1;
+  border-color: #73a252;
+  /* border-image: linear-gradient(90.68deg, #33d4de 0.26%, #00ffd1 102.37%);
+  border-image-slice: 1; */
 }
 
 .notion-red_background,

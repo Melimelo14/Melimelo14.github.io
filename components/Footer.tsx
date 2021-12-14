@@ -7,33 +7,51 @@ export const Footer: React.FC = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.footerWrapper}>
-        <div className={styles.copyright}>Copyright 2021 {config.author}</div>
-
         <div className={styles.social}>
-          {config.twitter && (
+          {config.facebook && (
             <a
-              className={styles.twitter}
-              href={`https://twitter.com/${config.twitter}`}
-              title={`Twitter @${config.twitter}`}
+              className={styles.facebook}
+              href={`https://facebook.com/${config.facebook}`}
+              title={`Facebook ${config.facebook}`}
               target="_blank"
               rel="noopener noreferrer"
             >
-              Twitter
+              Facebook
             </a>
           )}
 
-          {config.linkedin && (
+          {config.instagram && (
             <a
-              className={styles.linkedin}
-              href={`https://www.linkedin.com/in/${config.linkedin}`}
-              title={`LinkedIn ${config.author}`}
+              className={styles.instagram}
+              href={`https://instagram.com/${config.instagram}`}
+              title={`LinkedIn ${config.instagram}`}
               target="_blank"
               rel="noopener noreferrer"
             >
-              LinkedIn
+              Instagram
             </a>
           )}
         </div>
+
+        <div className={styles.copyright}>
+          {config.author}
+          <br />
+          Praticienne en MTC à domicile
+          <br />
+          {config.phone && (
+            <a
+              className={styles.phone}
+              href={`tel:${config.phone}`}
+              title={`Téléphone`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {config.phone}
+            </a>
+          )}
+        </div>
+
+        <div className={styles.settings}>Mentions légales</div>
       </div>
     </footer>
   );

@@ -1,7 +1,7 @@
 .footer {
-  background: #33d4de;
-  background-image: linear-gradient(90.68deg, #33d4de 0.26%, #00ffd1 102.37%);
-  color: white;
+  /* background: #33d4de;
+  background-image: linear-gradient(90.68deg, #33d4de 0.26%, #00ffd1 102.37%); */
+  color: #5e5e5e;
   padding: 20px 0;
 
   display: flex;
@@ -24,6 +24,12 @@
 .copyright {
   font-size: 80%;
   padding: 0.5em;
+  text-align: center;
+}
+
+.settings {
+  font-size: 80%;
+  padding: 0.5em;
 }
 
 @media only screen and (max-width: 566px) {
@@ -42,6 +48,7 @@
     order: 2;
   }
   .footer .copyright {
+    text-align: left;
     order: 3;
   }
 }

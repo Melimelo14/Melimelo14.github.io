@@ -8,15 +8,16 @@ module.exports = {
 
   // basic site info (required)
   name: "Emilie Meot MTC",
-  domain: "transitivebullsh.it",
+  domain: "mtc-passy-mont-blanc.com",
   author: "Emilie Meot",
 
   // open graph metadata (optional)
   description: "Example site description",
 
   // social usernames (optional)
-  twitter: "transitive_bs",
-  linkedin: "emilie-meot",
+  facebook: "emilie-meot",
+  instagram: "emilie-meot",
+  phone: "06.72.57.27.14",
 
   // default notion icon and cover images for site-wide consistency (optional)
   // page-specific values will override these site-wide defaults
