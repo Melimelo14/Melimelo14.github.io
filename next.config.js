@@ -6,7 +6,14 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 
 module.exports = withBundleAnalyzer({
   async redirects() {
-    return [];
+    return [
+      {
+        source: "/bdd",
+        destination:
+          "https://airtable.com/appG8lQsyJDK5caMZ/tblNbvBoTs6r1GvQC/viw1v0UNpjhP2tzrD?blocks=bip72ZLPOmL1NPRZ8",
+        basePath: false,
+      },
+    ];
   },
   experimental: { esmExternals: true },
 });
