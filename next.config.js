@@ -12,6 +12,7 @@ module.exports = withBundleAnalyzer({
         destination:
           "https://airtable.com/appG8lQsyJDK5caMZ/tblNbvBoTs6r1GvQC/viw1v0UNpjhP2tzrD?blocks=bip72ZLPOmL1NPRZ8",
         basePath: false,
+        permanent: false,
       },
     ];
   },
