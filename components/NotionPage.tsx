@@ -1,4 +1,5 @@
 import * as React from "react";
+import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import cs from "classnames";
@@ -6,12 +7,7 @@ import { useRouter } from "next/router";
 import { PageBlock } from "notion-types";
 
 // core notion renderer
-import {
-  NotionRenderer,
-  Code,
-  CollectionRow,
-  Collection,
-} from "react-notion-x";
+import { NotionRenderer } from "react-notion-x";
 
 // utils
 import { getBlockTitle } from "notion-utils";
@@ -36,9 +32,11 @@ import styles from "./styles.module.css";
 //   import('react-notion-x').then((notion) => notion.Code)
 // )
 //
-// const Collection = dynamic(() =>
-//   import('react-notion-x').then((notion) => notion.Collection)
-// )
+const Collection = dynamic(() =>
+  import("react-notion-x/build/third-party/collection").then(
+    (m) => m.Collection
+  )
+);
 //
 // const CollectionRow = dynamic(
 //   () => import('react-notion-x').then((notion) => notion.CollectionRow),
@@ -59,10 +57,10 @@ import styles from "./styles.module.css";
 // instead of the official iframe-based embed widget from twitter
 // const Tweet = dynamic(() => import('react-tweet-embed'))
 
-const Modal = dynamic(
-  () => import("react-notion-x").then((notion) => notion.Modal),
-  { ssr: false }
-);
+// const Modal = dynamic(
+//   () => import("react-notion-x").then((notion) => notion.Modal),
+//   { ssr: false }
+// );
 
 export const NotionPage: React.FC<types.PageProps> = ({
   site,
@@ -143,36 +141,39 @@ export const NotionPage: React.FC<types.PageProps> = ({
       <NotionRenderer
         bodyClassName={cs(styles.notion)}
         components={{
-          pageLink: ({
-            href,
-            as,
-            passHref,
-            prefetch,
-            replace,
-            scroll,
-            shallow,
-            locale,
-            ...props
-          }) => (
-            <Link
-              href={href}
-              as={as}
-              passHref={passHref}
-              prefetch={prefetch}
-              replace={replace}
-              scroll={scroll}
-              shallow={shallow}
-              locale={locale}
-            >
-              <a {...props} />
-            </Link>
-          ),
-          code: Code,
-          collection: (props) => (
-            <Collection {...props} recordMap={recordMap} />
-          ),
-          collectionRow: CollectionRow,
-          modal: Modal,
+          nextImage: Image,
+          nextLink: Link,
+          Collection,
+          // PageLink: ({
+          //   href,
+          //   as,
+          //   passHref,
+          //   prefetch,
+          //   replace,
+          //   scroll,
+          //   shallow,
+          //   locale,
+          //   ...props
+          // }) => (
+          //   <Link
+          //     href={href}
+          //     as={as}
+          //     passHref={passHref}
+          //     prefetch={prefetch}
+          //     replace={replace}
+          //     scroll={scroll}
+          //     shallow={shallow}
+          //     locale={locale}
+          //   >
+          //     <a {...props} />
+          //   </Link>
+          // ),
+          // code: Code,
+          // collection: (props) => (
+          //   <Collection {...props} recordMap={recordMap} />
+          // ),
+          // collectionRow: CollectionRow,
+          // modal: Modal,
         }}
         recordMap={recordMap}
         rootPageId={site.rootNotionPageId}

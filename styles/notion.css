@@ -15,6 +15,7 @@
 .notion {
   --notion-max-width: 720px;
   --notion-header-height: 54px;
+  --bg-color: #fcfff2;
 }
 
 .notion-page {
@@ -320,4 +321,8 @@
 .notion-bookmark:hover {
   border-image: linear-gradient(90.68deg, #b439df 0.26%, #e5337e 102.37%);
   border-image-slice: 1;
+}
+
+.notion-collection-card-cover {
+  overflow: hidden;
 }
