@@ -8,7 +8,7 @@ import { getCanonicalPageId } from "./get-canonical-page-id";
 
 const uuid = !!includeNotionIdInUrls;
 
-export const getAllPages = pMemoize(getAllPagesImpl, { maxAge: 60000 * 5 });
+export const getAllPages = pMemoize(getAllPagesImpl);
 
 export async function getAllPagesImpl(
   rootNotionPageId: string,
