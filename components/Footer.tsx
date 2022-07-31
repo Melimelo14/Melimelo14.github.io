@@ -1,9 +1,13 @@
 import * as React from "react";
+import * as types from "../lib/types";
 import * as config from "../lib/config";
+import { PageLink } from "./PageLink";
 
 import styles from "./Footer.module.css";
 
-export const Footer: React.FC = () => {
+export const Footer: React.FC<{ siteMap: types.SiteMap }> = (props) => {
+  const { siteMap } = props;
+
   return (
     <footer className={styles.footer}>
       <div className={styles.footerWrapper}>
@@ -51,7 +55,12 @@ export const Footer: React.FC = () => {
           )}
         </div>
 
-        <div className={styles.settings}>Mentions légales</div>
+        <div className={styles.settings}>
+          <PageLink
+            siteMap={siteMap}
+            pageId="M-diation-protection-des-donn-es-et-mentions-l-gales-8da4703acea74082895bbeb4752c20f2"
+          />
+        </div>
       </div>
     </footer>
   );

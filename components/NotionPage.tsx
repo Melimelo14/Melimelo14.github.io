@@ -187,7 +187,7 @@ export const NotionPage: React.FC<types.PageProps> = ({
         pageHeader={null}
         pageFooter={null}
       />
-      <Footer />
+      <Footer siteMap={siteMap} />
     </>
   );
 };
