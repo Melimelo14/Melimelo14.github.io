@@ -40,7 +40,7 @@ export const Footer: React.FC<{ siteMap: types.SiteMap }> = (props) => {
         <div className={styles.copyright}>
           {config.author}
           <br />
-          Praticienne en MTC à domicile
+          Praticienne en soins traditionnels chinois à domicile
           <br />
           {config.phone && (
             <a
