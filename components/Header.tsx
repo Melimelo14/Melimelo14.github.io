@@ -42,18 +42,19 @@ export const Header: React.FC<{ siteMap: types.SiteMap }> = (props) => {
           <li>
             <PageLink
               siteMap={siteMap}
+              pageId="Rdv-et-infos-pratiques-eca1edc0fb67400aa9073dceae1f7407"
+              role="menuitem"
+            />
+          </li>
+                    
+          <li>
+            <PageLink
+              siteMap={siteMap}
               pageId="Qui-suis-je-3ae646cbc3804adb9e977aa25c571321"
               role="menuitem"
             />
           </li>
           
-          <li>
-            <PageLink
-              siteMap={siteMap}
-              pageId="Rdv-et-infos-pratiques-eca1edc0fb67400aa9073dceae1f7407"
-              role="menuitem"
-            />
-          </li>
           <li>
             <PageLink
               siteMap={siteMap}
