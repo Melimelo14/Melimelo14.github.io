@@ -15,7 +15,7 @@ module.exports = {
   description: "Soins Traditionnels Chinois en vallée de l'Arve, sur Passy et environs",
 
   // social usernames (optional)
-  facebook: "profile.php?id=100072381819637",
+  facebook: "emilie.meot.mtc.passy",
   instagram: "",
   phone: "07.67.66.15.50",
 
