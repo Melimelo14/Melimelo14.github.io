@@ -10,16 +10,19 @@ export const SEO: React.FC<{
   canonicalPageUrl?: string;
   title?: string;
 }> = ({ site, children, description, image, canonicalPageUrl, title }) => {
+  const fullTitle = `${site?.name}${
+    site?.name && title !== "Accueil" ? " - " : ""
+  }${title !== "Accueil" ? title : ""}`;
   return (
     <Head>
       <meta name="theme-color" content="#fff4f1" />
       <meta property="og:type" content="website" />
 
-      {title || site?.name ? (
+      {fullTitle ? (
         <>
-          <title>{title || site?.name}</title>
-          <meta property="og:title" content={title || site?.name} />
-          <meta name="twitter:title" content={title || site?.name} />
+          <title>{fullTitle}</title>
+          <meta property="og:title" content={fullTitle} />
+          <meta name="twitter:title" content={fullTitle} />
         </>
       ) : null}
 
