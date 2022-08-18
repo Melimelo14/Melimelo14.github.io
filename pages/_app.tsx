@@ -6,6 +6,7 @@ import "react-notion-x/src/styles.css";
 
 // global style overrides for notion
 import "styles/notion.css";
+import "styles/page-accueil.css";
 
 import React from "react";
 import Script from "next/script";
