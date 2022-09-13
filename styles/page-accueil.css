@@ -1,7 +1,24 @@
 /* The punch line */
 .notion-block-682d5b128cf74a4aa4455f6a28e218d5 .notion-red b {
-  color: #db9e8f;
+  color: var(--header-bg-color);
   font-size: 32px;
   font-weight: bold;
   text-align: center;
+}
+
+
+/* Boutton prise rdv */
+.notion-text notion-block-72a4c8d728af4e128e8f683e338555ef .notion-red b {
+  .btn {
+  background-color: var(--fg-color);
+  border: none; 
+  color: var(--bg-color);
+  padding: 12px 16px; /* Some padding */
+  font-size: 16px; /* Set a font size */
+  cursor: pointer; /* Mouse pointer on hover */
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+  background-color: RoyalBlue;
 }
