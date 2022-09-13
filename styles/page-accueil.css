@@ -8,8 +8,8 @@
 
 
 /* Boutton prise rdv */
-.notion-text notion-block-72a4c8d728af4e128e8f683e338555ef .notion-red b {
-  .btn {
+.notion-block-72a4c8d728af4e128e8f683e338555ef .notion-red b {
+  display: block;
   background-color: var(--fg-color);
   border: none; 
   color: var(--bg-color);
