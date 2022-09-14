@@ -10,7 +10,7 @@
 /* Boutton prise rdv */
 .notion-block-72a4c8d728af4e128e8f683e338555ef a {
   display: block;
-  background-color: var(--fg-color);
+  background-color: #854949;
   border: none; 
   color: var(--bg-color);
   padding: 12px 16px; /* Some padding */
@@ -20,5 +20,5 @@
 
 /* Darker background on mouse-over */
 .notion-block-72a4c8d728af4e128e8f683e338555ef a:hover {
-  background-color: RoyalBlue;
+  background-color: #bf9b91;
 }
