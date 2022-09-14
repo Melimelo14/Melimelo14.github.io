@@ -9,7 +9,7 @@
 
 /* Boutton prise rdv */
 .notion-block-72a4c8d728af4e128e8f683e338555ef a {
-  display: block;
+  display: flex;
   background-color: #854949;
   border: none; 
   color: var(--bg-color);
