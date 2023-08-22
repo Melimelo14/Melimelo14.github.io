@@ -54,7 +54,7 @@ export const Footer: React.FC<{ siteMap: types.SiteMap }> = (props) => {
         <div className={styles.copyright}>
           {config.author}
           <br />
-          Praticienne en soins traditionnels chinois à domicile
+          Praticienne en soins traditionnels chinois
           <br />
           {config.phone && (
             <a
