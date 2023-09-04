@@ -13,9 +13,9 @@ body {
   --fg-color-5: rgba(35, 52, 87, 0.024);
   --fg-color-6: rgba(35, 52, 87, 0.8);
   --fg-color-icon: var(--fg-color);
-  --bg-color: #ECF0E6;
+  --bg-color: #F3F8F3;
   --bg-color-0: hsla(44, 6%, 50%, 0.15);
-  --bg-color-1: #ECF0E6;
+  --bg-color-1: #F3F8F3;
   --bg-color-2: hsla(44, 6%, 50%, 0.15);
   --select-color-0: #2eaadc;
   --select-color-1: rgba(45, 170, 219, 0.3);
