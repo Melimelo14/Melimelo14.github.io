@@ -10,7 +10,7 @@ export const Header: React.FC<{ siteMap: types.SiteMap }> = (props) => {
   return (
     <header className={styles.header}>
       <h1>
-        Soins Traditionnels Chinois - Emilie Meot
+        Soins Traditionnels Chinois à Passy
       </h1>
       <nav aria-label="Main Menu">
         <ul role="menubar" id="menu-mtc-main-menu">
