@@ -12,7 +12,7 @@ module.exports = {
   author: "Emilie Meot",
 
   // open graph metadata (optional)
-  description: "Soins Traditionnels Chinois en vallée de l'Arve, sur Passy et environs",
+  description: "Soins Traditionnels Chinois à Passy",
 
   // social usernames (optional)
   facebook: "emilie.meot.mtc.passy",
