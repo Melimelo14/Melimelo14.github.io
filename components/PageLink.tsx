@@ -10,7 +10,7 @@ export const PageLink: React.FC<
     HTMLAnchorElement
   >
 > = (props) => {
-  const { siteMap, pageId, ...rest } = props;
+  const { siteMap, pageId, ref, ...rest } = props;
   const uuid = parsePageId(pageId);
   const siteMapPageUrl = mapPageUrl(
     siteMap.site,
@@ -19,13 +19,11 @@ export const PageLink: React.FC<
   );
 
   return (
-    <Link href={siteMapPageUrl(uuid)}>
-      <a {...rest}>
-        {getBlockTitle(
-          siteMap.pageMap[uuid].block[uuid].value,
-          siteMap.pageMap[uuid]
-        )}
-      </a>
+    <Link href={siteMapPageUrl(uuid)} {...rest}>
+      {getBlockTitle(
+        siteMap.pageMap[uuid].block[uuid].value,
+        siteMap.pageMap[uuid]
+      )}
     </Link>
   );
 };
