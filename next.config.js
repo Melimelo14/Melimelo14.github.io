@@ -19,6 +19,5 @@ module.exports = withBundleAnalyzer({
   images: {
     unoptimized: true,
   },
-  output: "export",
   experimental: { esmExternals: true },
 });
