@@ -104,3 +104,17 @@
     background-color: var(--header-fg-color);
   }
 }
+
+@media screen and (max-width: 591px) {
+  .header ul {
+    top: 116px;
+    height: calc(100vh - 116px);
+  }
+}
+
+@media screen and (max-width: 354px) {
+  .header ul {
+    top: 154px;
+    height: calc(100vh - 154px);
+  }
+}
