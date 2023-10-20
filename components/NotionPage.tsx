@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import cs from "classnames";
 import { useRouter } from "next/router";
 import { PageBlock } from "notion-types";
+import Cal, { getCalApi } from "@calcom/embed-react";
 
 // core notion renderer
 import { NotionRenderer } from "react-notion-x";
@@ -74,6 +75,17 @@ export const NotionPage: React.FC<types.PageProps> = ({
   const params: any = {};
 
   const searchParams = new URLSearchParams(params);
+
+  React.useEffect(() => {
+    (async function () {
+      const cal = await getCalApi();
+      cal("ui", {
+        styles: { branding: { brandColor: "#000000" } },
+        hideEventTypeDetails: false,
+        layout: "month_view",
+      });
+    })();
+  }, []);
 
   if (router.isFallback) {
     return <Loading />;
@@ -146,6 +158,21 @@ export const NotionPage: React.FC<types.PageProps> = ({
           nextImage: Image,
           nextLink: Link,
           Collection,
+          Embed: (props) => {
+            if (
+              props.block?.properties?.source?.[0]?.[0] ===
+              "https://cal.com/mtc-passy-mont-blanc"
+            ) {
+              return (
+                <Cal
+                  calLink="mtc-passy-mont-blanc"
+                  style={{ width: "100%", height: "auto", overflow: "scroll" }}
+                />
+              );
+            }
+            console.log("embed", props);
+            return null;
+          },
           // PageLink: ({
           //   href,
           //   as,
