@@ -6,13 +6,12 @@
   text-align: center;
 }
 
-
 /* Boutton prise rdv */
 .notion-block-72a4c8d728af4e128e8f683e338555ef a {
   text-transform: uppercase;
   display: inline-block;
   background-color: var(--bg-color);
-  border: 3px solid var(--fg-color); 
+  border: 3px solid var(--fg-color);
   color: var(--fg-color);
   padding: 12px 30px; /* Some padding */
   font-size: 16px; /* Set a font size */
@@ -22,8 +21,17 @@
   border-radius: 30px;
 }
 
+.notion-block-72a4c8d728af4e128e8f683e338555ef .notion-red {
+  color: var(--fg-color);
+}
+
 /* Darker background on mouse-over */
 .notion-block-72a4c8d728af4e128e8f683e338555ef a:hover {
   background-color: var(--fg-color);
-  border: 3px solid var(--fg-color); 
-  color: var(--bg-color);}
+  border: 3px solid var(--fg-color);
+  color: var(--bg-color);
+}
+
+.notion-block-72a4c8d728af4e128e8f683e338555ef a:hover .notion-red {
+  color: var(--bg-color);
+}
