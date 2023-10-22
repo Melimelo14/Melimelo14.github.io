@@ -80,4 +80,5 @@ html {
   background-image: url("/fleur.png");
   background-repeat: no-repeat;
   background-size: 800px auto;
+  background-position-y: 100px;
 }
