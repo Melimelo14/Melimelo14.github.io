@@ -9,26 +9,12 @@ import "styles/notion.css";
 import "styles/page-accueil.css";
 
 import React from "react";
-import Script from "next/script";
+import { GoogleAnalytics } from "nextjs-google-analytics";
 
 export default function App({ Component, pageProps }) {
   return (
     <>
-      <Script
-        strategy="lazyOnload"
-        src={`https://www.googletagmanager.com/gtag/js?id=G-YN521H8YZ9`}
-      />
-
-      <Script strategy="lazyOnload">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-YN521H8YZ9', {
-            page_path: window.location.pathname,
-          });
-        `}
-      </Script>
+      <GoogleAnalytics trackPageViews gaMeasurementId="G-YN521H8YZ9" />
       <Component {...pageProps} />
     </>
   );

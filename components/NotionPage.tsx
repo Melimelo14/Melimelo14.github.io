@@ -6,6 +6,7 @@ import cs from "classnames";
 import { useRouter } from "next/router";
 import { PageBlock } from "notion-types";
 import Cal, { getCalApi } from "@calcom/embed-react";
+import { event } from "nextjs-google-analytics";
 
 // core notion renderer
 import { NotionRenderer } from "react-notion-x";
@@ -83,6 +84,24 @@ export const NotionPage: React.FC<types.PageProps> = ({
         styles: { branding: { brandColor: "#4c6074" } },
         hideEventTypeDetails: false,
         layout: "month_view",
+      });
+      cal("on", {
+        action: "eventTypeSelected",
+        callback: (data) => {
+          event("select_event_type", {
+            // @ts-ignore
+            type: String(data.detail?.data?.eventType),
+          });
+        },
+      });
+      cal("on", {
+        action: "bookingSuccessful",
+        callback: (data) => {
+          event("booking_successful", {
+            // @ts-ignore
+            type: String(data.detail?.data?.eventType),
+          });
+        },
       });
     })();
   }, []);
