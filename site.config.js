@@ -12,7 +12,7 @@ module.exports = {
   author: "Emilie Meot",
 
   // open graph metadata (optional)
-  description: "Soins Traditionnels Chinois à Passy",
+  description: "Soins Traditionnels Chinois, 995 route du plateau d'Assy, Passy. Acupressure, Massage, Pharmacopée, Diététique. Du bébé à l'adulte, incluant un accompagnement de la femme enceinte.",
 
   // social usernames (optional)
   facebook: "emilie.meot.mtc.passy",
