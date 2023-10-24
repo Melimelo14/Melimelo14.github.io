@@ -4,40 +4,8 @@ import { getSiteMaps } from "../lib/get-site-maps";
 import { resolveNotionPage } from "../lib/resolve-notion-page";
 import { NotionPage } from "../components";
 
-const redirects = {
-  bdd: {
-    destination:
-      "https://airtable.com/appG8lQsyJDK5caMZ/tblNbvBoTs6r1GvQC/viw1v0UNpjhP2tzrD?blocks=bip72ZLPOmL1NPRZ8",
-    basePath: false,
-    permanent: false,
-  },
-  "rdv-et-infos-pratiques": {
-    destination: "rendez-vous-et-infos-pratiques",
-    permanent: true,
-  },
-  "qu-est-ce-que-la-mtc": {
-    destination: "quest-ce-que-la-medecine-traditionnelle-chinoise",
-    permanent: true,
-  },
-  "qui-suis-je": {
-    destination: "a-propos",
-    permanent: true,
-  },
-  "votre-soin-individualise": {
-    destination: "rendez-vous-et-infos-pratiques",
-    permanent: true,
-  },
-};
-
 export const getStaticProps = async (context) => {
   const rawPageId = context.params.pageId as string;
-
-  const redirect = redirects[rawPageId];
-  if (redirect) {
-    return {
-      redirect,
-    };
-  }
 
   try {
     const props = await resolveNotionPage(domain, rawPageId);
@@ -73,7 +41,7 @@ export async function getStaticPaths() {
         },
       }))
     ),
-    fallback: true,
+    fallback: false,
   };
 
   return ret;
