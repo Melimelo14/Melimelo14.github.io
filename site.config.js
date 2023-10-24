@@ -12,7 +12,8 @@ module.exports = {
   author: "Emilie Meot",
 
   // open graph metadata (optional)
-  description: "Soins Traditionnels Chinois, 995 route du plateau d'Assy, Passy. Acupressure, Massage, Pharmacopée, Diététique. Du bébé à l'adulte, incluant un accompagnement de la femme enceinte.",
+  description:
+    "Soins Traditionnels Chinois, 995 route du plateau d'Assy, Passy. Acupressure, Massage, Pharmacopée, Diététique. Du bébé à l'adulte, incluant un accompagnement de la femme enceinte.",
 
   // social usernames (optional)
   facebook: "emilie.meot.mtc.passy",
@@ -28,10 +29,7 @@ module.exports = {
   // map of notion page IDs to URL paths (optional)
   // any pages defined here will override their default URL paths
   // example:
-  //
-  // pageUrlOverrides: {
-  //   '/foo': '067dd719a912471ea9a3ac10710e7fdf',
-  //   '/bar': '0be6efce9daf42688f65c76b89f8eb27'
-  // }
-  pageUrlOverrides: null,
+  pageUrlOverrides: {
+    "/la-medecine-traditionnelle-chinoise": "4d3b9b280abb49d5b15152c38d8f2861",
+  },
 };

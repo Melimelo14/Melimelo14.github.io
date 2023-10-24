@@ -15,7 +15,7 @@ export const SEO: React.FC<{
   }${title !== "Accueil" ? title : ""}`;
   return (
     <Head>
-      <meta name="theme-color" content="#fff4f1" />
+      <meta name="theme-color" content="#476176" />
       <meta property="og:type" content="website" />
 
       {fullTitle ? (

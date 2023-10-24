@@ -155,7 +155,7 @@ export const NotionPage: React.FC<types.PageProps> = ({
   const socialDescription =
     getPageDescription(page, recordMap) ?? config.description;
 
-  page.properties = { title: [[title]] };
+  page.properties = { title: [[title]], Description: [[socialDescription]] };
 
   return (
     <>

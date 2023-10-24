@@ -40,12 +40,12 @@ export async function getAllPagesImpl(
         );
 
         return map;
-      } else {
-        return {
-          ...map,
-          [canonicalPageId]: pageId,
-        };
       }
+
+      return {
+        ...map,
+        [canonicalPageId]: pageId,
+      };
     },
     {}
   );
