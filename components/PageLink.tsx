@@ -5,12 +5,16 @@ import { mapPageUrl } from "../lib/map-page-url";
 import * as types from "../lib/types";
 
 export const PageLink: React.FC<
-  { siteMap: types.SiteMap; pageId: string } & React.DetailedHTMLProps<
+  {
+    siteMap: types.SiteMap;
+    pageId: string;
+    children?: React.ReactNode;
+  } & React.DetailedHTMLProps<
     React.AnchorHTMLAttributes<HTMLAnchorElement>,
     HTMLAnchorElement
   >
 > = (props) => {
-  const { siteMap, pageId, ref, ...rest } = props;
+  const { siteMap, pageId, ref, children, ...rest } = props;
   const uuid = parsePageId(pageId);
   const siteMapPageUrl = mapPageUrl(
     siteMap.site,
@@ -20,10 +24,11 @@ export const PageLink: React.FC<
 
   return (
     <Link href={siteMapPageUrl(uuid)} {...rest}>
-      {getBlockTitle(
-        siteMap.pageMap[uuid].block[uuid].value,
-        siteMap.pageMap[uuid]
-      )}
+      {children ??
+        getBlockTitle(
+          siteMap.pageMap[uuid].block[uuid].value,
+          siteMap.pageMap[uuid]
+        )}
     </Link>
   );
 };

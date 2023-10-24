@@ -72,7 +72,14 @@ export const Footer: React.FC<{ siteMap: types.SiteMap }> = (props) => {
         <div className={styles.settings}>
           <PageLink
             siteMap={siteMap}
+            pageId="FAQ-5eae3a3d58e940388866a51e3a01c2a8"
+            role="menuitem"
+          />
+          <br />
+          <PageLink
+            siteMap={siteMap}
             pageId="M-diation-protection-des-donn-es-et-mentions-l-gales-8da4703acea74082895bbeb4752c20f2"
+            role="menuitem"
           />
         </div>
       </div>

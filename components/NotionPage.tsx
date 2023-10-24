@@ -189,7 +189,6 @@ export const NotionPage: React.FC<types.PageProps> = ({
                 />
               );
             }
-            console.log("embed", props);
             return null;
           },
           // PageLink: ({
