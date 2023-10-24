@@ -7,7 +7,7 @@ module.exports = {
   rootNotionSpaceId: null,
 
   // basic site info (required)
-  name: "Emilie Meot MTC",
+  name: "Emilie Meot Médecine Traditionnelle Chinoise",
   domain: "mtc-passy-mont-blanc.com",
   author: "Emilie Meot",
 
