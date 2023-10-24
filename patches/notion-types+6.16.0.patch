@@ -1,0 +1,14 @@
+diff --git a/node_modules/notion-types/build/block.d.ts b/node_modules/notion-types/build/block.d.ts
+index 18427f9..be5322e 100644
+--- a/node_modules/notion-types/build/block.d.ts
++++ b/node_modules/notion-types/build/block.d.ts
+@@ -51,7 +51,8 @@ export interface BaseContentBlock extends BaseBlock {
+ }
+ export interface BasePageBlock extends BaseBlock {
+     properties?: {
+-        title: Decoration[];
++      title: Decoration[];
++      Description?: Decoration[];
+     };
+     format: {
+         page_full_width?: boolean;

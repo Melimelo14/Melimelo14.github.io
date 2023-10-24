@@ -4,6 +4,7 @@
   "description": "",
   "license": "MIT",
   "scripts": {
+    "postinstall": "patch-package",
     "dev": "next dev",
     "build": "next build && next export",
     "start": "next start"
@@ -25,6 +26,7 @@
     "@next/bundle-analyzer": "^13.5.4",
     "@types/node": "^20.8.5",
     "@types/react": "^18.2.28",
+    "patch-package": "^8.0.0",
     "typescript": "^5.2.2"
   }
 }

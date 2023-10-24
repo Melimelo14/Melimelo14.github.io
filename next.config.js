@@ -14,6 +14,30 @@ module.exports = withBundleAnalyzer({
         basePath: false,
         permanent: false,
       },
+      {
+        source: "/rdv-et-infos-pratiques",
+        destination: "/rendez-vous-et-infos-pratiques",
+        basePath: false,
+        permanent: true,
+      },
+      {
+        source: "/qu-est-ce-que-la-mtc",
+        destination: "/quest-ce-que-la-medecine-traditionnelle-chinoise",
+        basePath: false,
+        permanent: true,
+      },
+      {
+        source: "/qui-suis-je",
+        destination: "/a-propos",
+        basePath: false,
+        permanent: true,
+      },
+      {
+        source: "/votre-soin-individualise",
+        destination: "/rendez-vous-et-infos-pratiques",
+        basePath: false,
+        permanent: true,
+      },
     ];
   },
   images: {

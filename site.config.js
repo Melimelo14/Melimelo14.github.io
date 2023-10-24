@@ -30,6 +30,7 @@ module.exports = {
   // any pages defined here will override their default URL paths
   // example:
   pageUrlOverrides: {
-    "/la-medecine-traditionnelle-chinoise": "4d3b9b280abb49d5b15152c38d8f2861",
+    "/quest-ce-que-la-medecine-traditionnelle-chinoise":
+      "4d3b9b280abb49d5b15152c38d8f2861",
   },
 };
