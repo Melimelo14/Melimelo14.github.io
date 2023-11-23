@@ -11,12 +11,12 @@ const uuid = !!includeNotionIdInUrls;
 export const getAllPages = pMemoize(getAllPagesImpl);
 
 export async function getAllPagesImpl(
-  rootNotionPageId: string,
-  rootNotionSpaceId: string
+  rootNotionPageId: string
 ): Promise<Partial<types.SiteMap>> {
   const pageMap = await getAllPagesInSpace(
     rootNotionPageId,
-    rootNotionSpaceId,
+    // @ts-expect-error
+    null,
     notion.getPage.bind(notion)
   );
 
@@ -31,6 +31,10 @@ export async function getAllPagesImpl(
         uuid,
       });
 
+      if (!canonicalPageId) {
+        return map;
+      }
+
       if (map[canonicalPageId]) {
         console.error(
           "error duplicate canonical page id",
@@ -42,12 +46,11 @@ export async function getAllPagesImpl(
         return map;
       }
 
-      return {
-        ...map,
-        [canonicalPageId]: pageId,
-      };
+      map[canonicalPageId] = pageId;
+
+      return map;
     },
-    {}
+    {} as { [canonicalPageId: string]: string }
   );
 
   return {

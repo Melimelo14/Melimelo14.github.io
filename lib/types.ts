@@ -9,7 +9,7 @@ export interface PageError {
 
 export interface PageProps {
   site?: Site;
-  recordMap?: ExtendedRecordMap;
+  recordMap: ExtendedRecordMap;
   pageId?: string;
   error?: PageError;
   siteMap: SiteMap;
@@ -28,7 +28,6 @@ export interface Site extends Model {
   domain: string;
 
   rootNotionPageId: string;
-  rootNotionSpaceId: string;
 
   // settings
   html?: string;

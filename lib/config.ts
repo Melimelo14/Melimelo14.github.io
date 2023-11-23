@@ -18,12 +18,6 @@ if (!rootNotionPageId) {
   throw new Error('Config error invalid "rootNotionPageId"');
 }
 
-// if you want to restrict pages to a single notion workspace (optional)
-export const rootNotionSpaceId: string | null = parsePageId(
-  getSiteConfig("rootNotionSpaceId", null),
-  { uuid: true }
-);
-
 export const pageUrlOverrides = cleanPageUrlMap(
   getSiteConfig("pageUrlOverrides", {}) || {},
   "pageUrlOverrides"
@@ -46,20 +40,6 @@ export const description: string = getSiteConfig("description");
 export const facebook: string | null = getSiteConfig("facebook", null);
 export const instagram: string | null = getSiteConfig("instagram", null);
 export const phone: string | null = getSiteConfig("phone", null);
-
-// default notion values for site-wide consistency (optional; may be overridden on a per-page basis)
-export const defaultPageIcon: string | null = getSiteConfig(
-  "defaultPageIcon",
-  null
-);
-export const defaultPageCover: string | null = getSiteConfig(
-  "defaultPageCover",
-  null
-);
-export const defaultPageCoverPosition: number = getSiteConfig(
-  "defaultPageCoverPosition",
-  0.5
-);
 
 // Optional image CDN host to proxy all image requests through
 export const imageCDNHost: string | null = getSiteConfig("imageCDNHost", null);

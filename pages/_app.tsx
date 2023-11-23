@@ -11,7 +11,7 @@ import "styles/page-accueil.css";
 import React from "react";
 import { GoogleAnalytics } from "nextjs-google-analytics";
 
-export default function App({ Component, pageProps }) {
+export default function App({ Component, pageProps }: any) {
   return (
     <>
       <GoogleAnalytics trackPageViews gaMeasurementId="G-YN521H8YZ9" />

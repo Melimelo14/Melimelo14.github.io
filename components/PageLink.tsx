@@ -16,19 +16,22 @@ export const PageLink: React.FC<
 > = (props) => {
   const { siteMap, pageId, ref, children, ...rest } = props;
   const uuid = parsePageId(pageId);
+
+  const recordMap = siteMap.pageMap[uuid];
+
+  if (!recordMap) {
+    throw new Error(`Failed to find page "${pageId}" in site map`);
+  }
+
   const siteMapPageUrl = mapPageUrl(
     siteMap.site,
-    siteMap.pageMap[uuid],
+    recordMap,
     new URLSearchParams()
   );
 
   return (
     <Link href={siteMapPageUrl(uuid)} {...rest}>
-      {children ??
-        getBlockTitle(
-          siteMap.pageMap[uuid].block[uuid].value,
-          siteMap.pageMap[uuid]
-        )}
+      {children ?? getBlockTitle(recordMap.block[uuid].value, recordMap)}
     </Link>
   );
 };

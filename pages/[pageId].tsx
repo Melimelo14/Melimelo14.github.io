@@ -1,13 +1,18 @@
 import React from "react";
+import { GetStaticProps } from "next";
 import { isDev, domain } from "../lib/config";
 import { getSiteMaps } from "../lib/get-site-maps";
 import { resolveNotionPage } from "../lib/resolve-notion-page";
+import { PageProps } from "../lib/types";
 import { NotionPage } from "../components";
 
-export const getStaticProps = async (context) => {
-  const rawPageId = context.params.pageId as string;
+export const getStaticProps: GetStaticProps = async (context) => {
+  const rawPageId = context.params?.pageId;
 
   try {
+    if (!rawPageId || Array.isArray(rawPageId)) {
+      throw new Error(`Failed to resolve pageId`);
+    }
     const props = await resolveNotionPage(domain, rawPageId);
 
     return {
@@ -47,6 +52,6 @@ export async function getStaticPaths() {
   return ret;
 }
 
-export default function NotionDomainDynamicPage(props) {
+export default function NotionDomainDynamicPage(props: PageProps) {
   return <NotionPage {...props} />;
 }

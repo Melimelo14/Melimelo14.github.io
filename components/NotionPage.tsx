@@ -115,7 +115,13 @@ export const NotionPage: React.FC<types.PageProps> = ({
 
   if (error || !site || !keys.length || !page) {
     return (
-      <Page404 site={site} pageId={pageId} error={error} siteMap={siteMap} />
+      <Page404
+        site={site}
+        pageId={pageId}
+        error={error}
+        siteMap={siteMap}
+        recordMap={recordMap}
+      />
     );
   }
 
@@ -141,16 +147,14 @@ export const NotionPage: React.FC<types.PageProps> = ({
 
   const siteMapPageUrl = mapPageUrl(site, recordMap, searchParams);
 
-  const canonicalPageUrl =
-    !config.isDev && getCanonicalPageUrl(site, recordMap)(pageId);
+  const canonicalPageUrl = !config.isDev
+    ? getCanonicalPageUrl(site, recordMap)(pageId)
+    : undefined;
 
   // const isRootPage =
   //   parsePageId(block.id) === parsePageId(site.rootNotionPageId)
 
-  const socialImage = mapNotionImageUrl(
-    page.format?.page_cover || config.defaultPageCover,
-    page
-  );
+  const socialImage = mapNotionImageUrl(page.format?.page_cover, page);
 
   const socialDescription =
     getPageDescription(page, recordMap) ?? config.description;
@@ -177,7 +181,7 @@ export const NotionPage: React.FC<types.PageProps> = ({
           nextImage: Image,
           nextLink: Link,
           Collection,
-          Embed: (props) => {
+          Embed: (props: any) => {
             if (
               props.block?.properties?.source?.[0]?.[0] ===
               "https://cal.com/mtc-passy-mont-blanc"
@@ -226,10 +230,8 @@ export const NotionPage: React.FC<types.PageProps> = ({
         rootPageId={site.rootNotionPageId}
         previewImages={site.previewImages !== false}
         showCollectionViewDropdown={false}
-        defaultPageIcon={config.defaultPageIcon}
-        defaultPageCover={config.defaultPageCover}
-        defaultPageCoverPosition={config.defaultPageCoverPosition}
         mapPageUrl={siteMapPageUrl}
+        // @ts-expect-error
         mapImageUrl={mapNotionImageUrl}
         pageHeader={null}
         pageFooter={null}

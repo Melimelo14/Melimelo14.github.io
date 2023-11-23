@@ -6,8 +6,8 @@ export const SEO: React.FC<{
   site?: types.Site;
   children?: React.ReactNode;
   description?: string;
-  image?: string;
-  canonicalPageUrl?: string;
+  image?: string | null;
+  canonicalPageUrl?: string | null;
   title?: string;
 }> = ({ site, children, description, image, canonicalPageUrl, title }) => {
   const fullTitle = `${site?.name}${

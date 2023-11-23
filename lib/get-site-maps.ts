@@ -20,7 +20,7 @@ export async function getSiteMaps(): Promise<types.SiteMap[]> {
 
         return {
           site,
-          ...(await getAllPages(site.rootNotionPageId, site.rootNotionSpaceId)),
+          ...(await getAllPages(site.rootNotionPageId)),
         } as types.SiteMap;
       } catch (err) {
         console.warn("site build error", index, site, err);
@@ -31,5 +31,5 @@ export async function getSiteMaps(): Promise<types.SiteMap[]> {
     }
   );
 
-  return siteMaps.filter(Boolean);
+  return siteMaps.filter(Boolean) as types.SiteMap[];
 }

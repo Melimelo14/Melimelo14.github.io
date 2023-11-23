@@ -1,7 +1,7 @@
 import { Block } from "notion-types";
 import { imageCDNHost } from "./config";
 
-export const mapNotionImageUrl = (url: string, block: Block) => {
+export const mapNotionImageUrl = (url: string | undefined, block: Block) => {
   if (!url) {
     return null;
   }

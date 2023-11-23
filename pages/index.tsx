@@ -2,6 +2,7 @@ import React from "react";
 import { domain } from "../lib/config";
 import { resolveNotionPage } from "../lib/resolve-notion-page";
 import { NotionPage } from "../components";
+import { PageProps } from "../lib/types";
 
 export const getStaticProps = async () => {
   try {
@@ -20,6 +21,6 @@ export const getStaticProps = async () => {
   }
 };
 
-export default function NotionDomainPage(props) {
+export default function NotionDomainPage(props: PageProps) {
   return <NotionPage {...props} />;
 }
