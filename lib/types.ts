@@ -7,13 +7,21 @@ export interface PageError {
   statusCode: number;
 }
 
-export interface PageProps {
-  site?: Site;
-  recordMap: ExtendedRecordMap;
-  pageId?: string;
-  error?: PageError;
-  siteMap: SiteMap;
-}
+export type PageProps =
+  | {
+      site: Site;
+      recordMap: undefined;
+      pageId?: string;
+      error: PageError;
+      pageMap: PageMap;
+    }
+  | {
+      site: Site;
+      recordMap: ExtendedRecordMap;
+      pageId?: string;
+      error?: PageError;
+      pageMap: PageMap;
+    };
 
 export interface Model {
   id: string;

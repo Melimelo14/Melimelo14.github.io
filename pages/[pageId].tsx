@@ -6,7 +6,7 @@ import { resolveNotionPage } from "../lib/resolve-notion-page";
 import { PageProps } from "../lib/types";
 import { NotionPage } from "../components";
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps<PageProps> = async (context) => {
   const rawPageId = context.params?.pageId;
 
   try {

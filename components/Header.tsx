@@ -4,14 +4,17 @@ import { PageLink } from "./PageLink";
 
 import styles from "./Header.module.css";
 
-export const Header: React.FC<{ siteMap: types.SiteMap }> = (props) => {
-  const { siteMap } = props;
+export const Header: React.FC<{ site: types.Site; pageMap: types.PageMap }> = (
+  props
+) => {
+  const { site, pageMap } = props;
   const [isNavExpanded, setIsNavExpanded] = React.useState(false);
 
   return (
     <header className={styles.header}>
       <PageLink
-        siteMap={siteMap}
+        site={site}
+        pageMap={pageMap}
         pageId="Accueil-7f9e6130d76940deb467f36d05b17526"
         role="menuitem"
       >
@@ -44,7 +47,8 @@ export const Header: React.FC<{ siteMap: types.SiteMap }> = (props) => {
         <ul role="menubar" id="menu-mtc-main-menu">
           <li>
             <PageLink
-              siteMap={siteMap}
+              site={site}
+              pageMap={pageMap}
               pageId="Accueil-7f9e6130d76940deb467f36d05b17526"
               role="menuitem"
             />
@@ -52,7 +56,8 @@ export const Header: React.FC<{ siteMap: types.SiteMap }> = (props) => {
 
           <li>
             <PageLink
-              siteMap={siteMap}
+              site={site}
+              pageMap={pageMap}
               pageId="la-mdecine-traditionnelle-chinoise-4d3b9b280abb49d5b15152c38d8f2861"
               role="menuitem"
             />
@@ -60,7 +65,8 @@ export const Header: React.FC<{ siteMap: types.SiteMap }> = (props) => {
 
           <li>
             <PageLink
-              siteMap={siteMap}
+              site={site}
+              pageMap={pageMap}
               pageId="rendez-vous-et-infos-pratiques-eca1edc0fb67400aa9073dceae1f7407"
               role="menuitem"
             />
@@ -68,7 +74,8 @@ export const Header: React.FC<{ siteMap: types.SiteMap }> = (props) => {
 
           <li>
             <PageLink
-              siteMap={siteMap}
+              site={site}
+              pageMap={pageMap}
               pageId="a-propos-3ae646cbc3804adb9e977aa25c571321"
               role="menuitem"
             />

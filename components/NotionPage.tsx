@@ -66,8 +66,8 @@ const Collection = dynamic(() =>
 
 export const NotionPage: React.FC<types.PageProps> = ({
   site,
+  pageMap,
   recordMap,
-  siteMap,
   error,
   pageId,
 }) => {
@@ -113,14 +113,15 @@ export const NotionPage: React.FC<types.PageProps> = ({
   const keys = Object.keys(recordMap?.block || {});
   const page = recordMap?.block?.[keys[0]]?.value as PageBlock;
 
-  if (error || !site || !keys.length || !page) {
+  if (error || !recordMap || !keys.length || !page) {
     return (
+      // @ts-ignore
       <Page404
         site={site}
         pageId={pageId}
         error={error}
-        siteMap={siteMap}
         recordMap={recordMap}
+        pageMap={pageMap}
       />
     );
   }
@@ -173,7 +174,7 @@ export const NotionPage: React.FC<types.PageProps> = ({
 
       <CustomFont site={site} />
 
-      <Header siteMap={siteMap} />
+      <Header site={site} pageMap={pageMap} />
 
       <NotionRenderer
         bodyClassName={cs(styles.notion)}
@@ -236,7 +237,7 @@ export const NotionPage: React.FC<types.PageProps> = ({
         pageHeader={null}
         pageFooter={null}
       />
-      <Footer siteMap={siteMap} />
+      <Footer site={site} pageMap={pageMap} />
     </>
   );
 };

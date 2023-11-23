@@ -6,7 +6,8 @@ import * as types from "../lib/types";
 
 export const PageLink: React.FC<
   {
-    siteMap: types.SiteMap;
+    site: types.Site;
+    pageMap: types.PageMap;
     pageId: string;
     children?: React.ReactNode;
   } & React.DetailedHTMLProps<
@@ -14,20 +15,16 @@ export const PageLink: React.FC<
     HTMLAnchorElement
   >
 > = (props) => {
-  const { siteMap, pageId, ref, children, ...rest } = props;
+  const { site, pageMap, pageId, ref, children, ...rest } = props;
   const uuid = parsePageId(pageId);
 
-  const recordMap = siteMap.pageMap[uuid];
+  const recordMap = pageMap[uuid];
 
   if (!recordMap) {
     throw new Error(`Failed to find page "${pageId}" in site map`);
   }
 
-  const siteMapPageUrl = mapPageUrl(
-    siteMap.site,
-    recordMap,
-    new URLSearchParams()
-  );
+  const siteMapPageUrl = mapPageUrl(site, recordMap, new URLSearchParams());
 
   return (
     <Link href={siteMapPageUrl(uuid)} {...rest}>

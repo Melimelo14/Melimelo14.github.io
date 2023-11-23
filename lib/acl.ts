@@ -1,10 +1,10 @@
 import { PageProps } from "./types";
 
-export async function pageAcl({
+export function pageAcl({
   site,
   recordMap,
   pageId,
-}: Partial<PageProps>): Promise<Partial<PageProps>> {
+}: Partial<PageProps>): Pick<PageProps, "error"> {
   if (!site) {
     return {
       error: {

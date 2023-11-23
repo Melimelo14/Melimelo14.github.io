@@ -8,7 +8,10 @@ import { getPage } from "./notion";
 import { getSiteMaps } from "./get-site-maps";
 import { getSiteForDomain } from "./get-site-for-domain";
 
-export async function resolveNotionPage(domain: string, rawPageId?: string) {
+export async function resolveNotionPage(
+  domain: string,
+  rawPageId?: string
+): Promise<types.PageProps> {
   let pageId: string;
 
   const [siteMaps, site] = await Promise.all([
@@ -42,7 +45,9 @@ export async function resolveNotionPage(domain: string, rawPageId?: string) {
             message: `Not found "${rawPageId}"`,
             statusCode: 404,
           },
-          siteMap,
+          site,
+          pageMap: siteMap?.pageMap,
+          recordMap: undefined,
         };
       }
     }
@@ -52,6 +57,6 @@ export async function resolveNotionPage(domain: string, rawPageId?: string) {
 
   const recordMap = await getPage(pageId);
 
-  const props = { site, recordMap, pageId, siteMap };
-  return { ...props, ...(await acl.pageAcl(props)) };
+  const props = { site, recordMap, pageId, pageMap: siteMap?.pageMap };
+  return { ...props, ...acl.pageAcl(props) };
 }

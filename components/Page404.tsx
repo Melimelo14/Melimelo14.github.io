@@ -6,12 +6,13 @@ import styles from "./styles.module.css";
 import { PageLink } from "./PageLink";
 import { CustomFont } from "./CustomFont";
 import { Header } from "./Header";
+import { Footer } from "./Footer";
 
 export const Page404: React.FC<types.PageProps> = ({
   site,
+  pageMap,
   pageId,
   error,
-  siteMap,
 }) => {
   return (
     <>
@@ -19,7 +20,7 @@ export const Page404: React.FC<types.PageProps> = ({
 
       <CustomFont site={site} />
 
-      <Header siteMap={siteMap} />
+      <Header site={site} pageMap={pageMap} />
 
       <div className={styles.container}>
         <main className={styles.main}>
@@ -42,7 +43,8 @@ export const Page404: React.FC<types.PageProps> = ({
           /> */}
 
           <PageLink
-            siteMap={siteMap}
+            site={site}
+            pageMap={pageMap}
             pageId="Accueil-7f9e6130d76940deb467f36d05b17526"
             role="menuitem"
           >
@@ -50,6 +52,7 @@ export const Page404: React.FC<types.PageProps> = ({
           </PageLink>
         </main>
       </div>
+      <Footer site={site} pageMap={pageMap} />
     </>
   );
 };
