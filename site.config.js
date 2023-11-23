@@ -22,5 +22,8 @@ module.exports = {
   pageUrlOverrides: {
     "/quest-ce-que-la-medecine-traditionnelle-chinoise":
       "4d3b9b280abb49d5b15152c38d8f2861",
+    "/actualites-et-blog": "aa2cafffdfe34e938dbcf3a60915b61b",
+    "/approche-energtique-holistique-ca-veut-dire-quoi":
+      "a1e7b59642c34336a580b829ce114ddc",
   },
 };

@@ -17,7 +17,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
     return {
       props,
-      revalidate: 10,
     };
   } catch (err) {
     console.error("page error", domain, rawPageId, err);
