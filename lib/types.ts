@@ -10,7 +10,7 @@ export interface PageError {
 export type PageProps =
   | {
       site: Site;
-      recordMap: undefined;
+      recordMap: null;
       pageId?: string;
       error: PageError;
       pageMap: PageMap;

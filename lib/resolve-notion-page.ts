@@ -5,6 +5,7 @@ import * as types from "./types";
 import { pageUrlOverrides, pageUrlAdditions } from "./config";
 import { getPage } from "./notion";
 import { getSiteMap } from "./get-site-map";
+import * as config from "./config";
 
 export async function resolveNotionPage(
   rawPageId?: string
@@ -13,7 +14,7 @@ export async function resolveNotionPage(
 
   const { site, pageMap, canonicalPageMap } = await getSiteMap();
 
-  if (rawPageId && rawPageId !== "index") {
+  if (rawPageId && rawPageId !== "index" && rawPageId !== config.domain) {
     pageId = parsePageId(rawPageId);
 
     if (!pageId) {
@@ -40,7 +41,7 @@ export async function resolveNotionPage(
           },
           site,
           pageMap,
-          recordMap: undefined,
+          recordMap: null,
         };
       }
     }
@@ -48,7 +49,7 @@ export async function resolveNotionPage(
     pageId = site.rootNotionPageId;
   }
 
-  const recordMap = await getPage(pageId);
+  const recordMap = (await getPage(pageId)) || null;
 
   const props = { site, recordMap, pageId, pageMap };
   return { ...props, ...acl.pageAcl(props) };
