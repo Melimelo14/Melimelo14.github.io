@@ -115,7 +115,6 @@ export const NotionPage: React.FC<types.PageProps> = ({
 
   if (error || !recordMap || !keys.length || !page) {
     return (
-      // @ts-ignore
       <Page404
         site={site}
         pageId={pageId}
@@ -128,7 +127,7 @@ export const NotionPage: React.FC<types.PageProps> = ({
 
   const title = getBlockTitle(page, recordMap) || site.name;
 
-  if (process.env.NODE_ENV !== "production") {
+  if (config.isDev) {
     console.log("notion page", {
       isDev: config.isDev,
       title,
@@ -138,7 +137,7 @@ export const NotionPage: React.FC<types.PageProps> = ({
     });
   }
 
-  if (!config.isServer) {
+  if (!config.isServer && config.isDev) {
     // add important objects to the window global for easy debugging
     const g = window as any;
     g.pageId = pageId;
@@ -151,9 +150,6 @@ export const NotionPage: React.FC<types.PageProps> = ({
   const canonicalPageUrl = !config.isDev
     ? getCanonicalPageUrl(site, recordMap)(pageId)
     : undefined;
-
-  // const isRootPage =
-  //   parsePageId(block.id) === parsePageId(site.rootNotionPageId)
 
   const socialImage = mapNotionImageUrl(page.format?.page_cover, page);
 
@@ -196,6 +192,7 @@ export const NotionPage: React.FC<types.PageProps> = ({
             }
             return null;
           },
+          PageLink: Link,
           // PageLink: ({
           //   href,
           //   as,
@@ -229,7 +226,6 @@ export const NotionPage: React.FC<types.PageProps> = ({
         }}
         recordMap={recordMap}
         rootPageId={site.rootNotionPageId}
-        previewImages={site.previewImages !== false}
         showCollectionViewDropdown={false}
         mapPageUrl={siteMapPageUrl}
         // @ts-expect-error

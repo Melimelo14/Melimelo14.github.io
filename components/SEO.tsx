@@ -3,15 +3,15 @@ import * as React from "react";
 import * as types from "../lib/types";
 
 export const SEO: React.FC<{
-  site?: types.Site;
+  site: types.Site;
   children?: React.ReactNode;
   description?: string;
   image?: string | null;
   canonicalPageUrl?: string | null;
   title?: string;
 }> = ({ site, children, description, image, canonicalPageUrl, title }) => {
-  const fullTitle = `${site?.name}${
-    site?.name && title !== "Accueil" ? " - " : ""
+  const fullTitle = `${site.name}${
+    site.name && title !== "Accueil" ? " - " : ""
   }${title !== "Accueil" ? title : ""}`;
   return (
     <Head>
@@ -26,22 +26,22 @@ export const SEO: React.FC<{
         </>
       ) : null}
 
-      {description || site?.description ? (
+      {description || site.description ? (
         <>
-          <meta name="description" content={description || site?.description} />
+          <meta name="description" content={description || site.description} />
           <meta
             property="og:description"
-            content={description || site?.description}
+            content={description || site.description}
           />
           <meta
             name="twitter:description"
-            content={description || site?.description}
+            content={description || site.description}
           />
         </>
       ) : null}
 
-      {site?.name ? <meta property="og:site_name" content={site.name} /> : null}
-      {site?.domain ? (
+      {site.name ? <meta property="og:site_name" content={site.name} /> : null}
+      {site.domain ? (
         <meta property="twitter:domain" content={site.domain} />
       ) : null}
 

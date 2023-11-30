@@ -8,15 +8,12 @@ import { CustomFont } from "./CustomFont";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 
-export const Page404: React.FC<types.PageProps> = ({
-  site,
-  pageMap,
-  pageId,
-  error,
-}) => {
+export const Page404: React.FC<
+  Partial<types.PageProps> & { site: types.Site; pageMap: types.PageMap }
+> = ({ site, pageMap, pageId, error }) => {
   return (
     <>
-      <SEO site={site} title={site?.name} />
+      <SEO site={site} />
 
       <CustomFont site={site} />
 

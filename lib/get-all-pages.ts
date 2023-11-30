@@ -12,7 +12,7 @@ export const getAllPages = pMemoize(getAllPagesImpl);
 
 export async function getAllPagesImpl(
   rootNotionPageId: string
-): Promise<Partial<types.SiteMap>> {
+): Promise<Pick<types.SiteMap, "canonicalPageMap" | "pageMap">> {
   const pageMap = await getAllPagesInSpace(
     rootNotionPageId,
     // @ts-expect-error

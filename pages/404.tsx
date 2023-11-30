@@ -1,6 +1,6 @@
 import { resolveNotionPage } from "../lib/resolve-notion-page";
 import { Page404 } from "../components";
-import { isDev, domain } from "../lib/config";
+import { domain } from "../lib/config";
 
 export const getStaticProps = async () => {
   try {

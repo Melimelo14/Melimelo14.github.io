@@ -1,7 +1,7 @@
 import React from "react";
 import { GetStaticProps } from "next";
-import { isDev, domain } from "../lib/config";
-import { getSiteMaps } from "../lib/get-site-maps";
+import { domain } from "../lib/config";
+import { getSiteMap } from "../lib/get-site-map";
 import { resolveNotionPage } from "../lib/resolve-notion-page";
 import { PageProps } from "../lib/types";
 import { NotionPage } from "../components";
@@ -13,7 +13,7 @@ export const getStaticProps: GetStaticProps<PageProps> = async (context) => {
     if (!rawPageId || Array.isArray(rawPageId)) {
       throw new Error(`Failed to resolve pageId`);
     }
-    const props = await resolveNotionPage(domain, rawPageId);
+    const props = await resolveNotionPage(rawPageId);
 
     return {
       props,
@@ -28,23 +28,14 @@ export const getStaticProps: GetStaticProps<PageProps> = async (context) => {
 };
 
 export async function getStaticPaths() {
-  if (isDev) {
-    return {
-      paths: [],
-      fallback: true,
-    };
-  }
-
-  const siteMaps = await getSiteMaps();
+  const siteMap = await getSiteMap();
 
   const ret = {
-    paths: siteMaps.flatMap((siteMap) =>
-      Object.keys(siteMap.canonicalPageMap).map((pageId) => ({
-        params: {
-          pageId,
-        },
-      }))
-    ),
+    paths: Object.keys(siteMap.canonicalPageMap).map((pageId) => ({
+      params: {
+        pageId,
+      },
+    })),
     fallback: false,
   };
 

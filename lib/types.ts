@@ -31,25 +31,18 @@ export interface Model {
   updatedAt: number;
 }
 
-export interface Site extends Model {
+export interface Site {
   name: string;
   domain: string;
 
   rootNotionPageId: string;
 
   // settings
-  html?: string;
   fontFamily?: string;
-  darkMode?: boolean;
-  previewImages?: boolean;
 
   // opengraph metadata
   description?: string;
   image?: string;
-
-  timestamp: Date;
-
-  isDisabled: boolean;
 }
 
 export interface SiteMap {

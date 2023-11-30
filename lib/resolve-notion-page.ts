@@ -1,24 +1,17 @@
 import { parsePageId } from "notion-utils";
-import { ExtendedRecordMap } from "notion-types";
 
 import * as acl from "./acl";
 import * as types from "./types";
 import { pageUrlOverrides, pageUrlAdditions } from "./config";
 import { getPage } from "./notion";
-import { getSiteMaps } from "./get-site-maps";
-import { getSiteForDomain } from "./get-site-for-domain";
+import { getSiteMap } from "./get-site-map";
 
 export async function resolveNotionPage(
-  domain: string,
   rawPageId?: string
 ): Promise<types.PageProps> {
   let pageId: string;
 
-  const [siteMaps, site] = await Promise.all([
-    getSiteMaps(),
-    getSiteForDomain(domain),
-  ]);
-  const siteMap = siteMaps[0];
+  const { site, pageMap, canonicalPageMap } = await getSiteMap();
 
   if (rawPageId && rawPageId !== "index") {
     pageId = parsePageId(rawPageId);
@@ -37,7 +30,7 @@ export async function resolveNotionPage(
     if (!pageId) {
       // handle mapping of user-friendly canonical page paths to Notion page IDs
       // e.g., /developer-x-entrepreneur versus /71201624b204481f862630ea25ce62fe
-      pageId = siteMap?.canonicalPageMap[rawPageId];
+      pageId = canonicalPageMap[rawPageId];
 
       if (!pageId) {
         return {
@@ -46,7 +39,7 @@ export async function resolveNotionPage(
             statusCode: 404,
           },
           site,
-          pageMap: siteMap?.pageMap,
+          pageMap,
           recordMap: undefined,
         };
       }
@@ -57,6 +50,6 @@ export async function resolveNotionPage(
 
   const recordMap = await getPage(pageId);
 
-  const props = { site, recordMap, pageId, pageMap: siteMap?.pageMap };
+  const props = { site, recordMap, pageId, pageMap };
   return { ...props, ...acl.pageAcl(props) };
 }
