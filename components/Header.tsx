@@ -76,6 +76,15 @@ export const Header: React.FC<{ site: types.Site; pageMap: types.PageMap }> = (
             <PageLink
               site={site}
               pageMap={pageMap}
+              pageId="Actualit-s-et-blog-aa2cafffdfe34e938dbcf3a60915b61b"
+              role="menuitem"
+            />
+          </li>
+
+          <li>
+            <PageLink
+              site={site}
+              pageMap={pageMap}
               pageId="a-propos-3ae646cbc3804adb9e977aa25c571321"
               role="menuitem"
             />

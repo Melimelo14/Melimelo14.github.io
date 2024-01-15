@@ -100,7 +100,7 @@
   background-color: var(--header-fg-color);
 }
 
-@media screen and (max-width: 956px) {
+@media screen and (max-width: 1067px) {
   .header h1 {
     padding: 0 60px 0 10px;
   }
