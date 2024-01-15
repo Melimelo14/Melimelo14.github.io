@@ -35,6 +35,15 @@
   color: #4267b2;
 }
 
+.instagram svg {
+  position: relative;
+  top: -4px;
+}
+
+.instagram:hover {
+  color: #e1306c;
+}
+
 @media only screen and (max-width: 566px) {
   .footer {
     flex-direction: column;

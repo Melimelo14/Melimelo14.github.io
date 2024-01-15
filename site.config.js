@@ -13,7 +13,7 @@ module.exports = {
 
   // social usernames (optional)
   facebook: "emilie.meot.mtc.passy",
-  instagram: "",
+  instagram: "https://www.instagram.com/emilie_meot_mtc_passy/",
   phone: "07.67.66.15.50",
 
   // map of notion page IDs to URL paths (optional)
