@@ -23,6 +23,7 @@
   bottom: calc(-5vw + 147px);
   left: 0;
   z-index: -1;
+  pointer-events: none;
 }
 
 .header h1::after {
@@ -38,6 +39,7 @@
   bottom: -5vw;
   left: 0;
   z-index: -1;
+  pointer-events: none;
 }
 
 .header ul {
