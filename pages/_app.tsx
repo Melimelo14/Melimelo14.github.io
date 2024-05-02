@@ -14,7 +14,7 @@ import { GoogleAnalytics } from "nextjs-google-analytics";
 export default function App({ Component, pageProps }: any) {
   return (
     <>
-      <GoogleAnalytics trackPageViews gaMeasurementId="G-YN521H8YZ9" />
+      <GoogleAnalytics trackPageViews gaMeasurementId="G-S1DD2Z5TF0" />
       <Component {...pageProps} />
     </>
   );
