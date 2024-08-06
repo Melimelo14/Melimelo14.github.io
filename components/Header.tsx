@@ -18,7 +18,7 @@ export const Header: React.FC<{ site: types.Site; pageMap: types.PageMap }> = (
         pageId="Accueil-7f9e6130d76940deb467f36d05b17526"
         role="menuitem"
       >
-        <h1>Soins Traditionnels Chinois à Passy</h1>
+        <h1>Médecine Traditionnelle Chinoise à Passy</h1>
       </PageLink>
       <button
         className={styles.hamburger}
