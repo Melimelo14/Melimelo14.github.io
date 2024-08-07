@@ -102,7 +102,7 @@
   background-color: var(--header-fg-color);
 }
 
-@media screen and (max-width: 1067px) {
+@media screen and (max-width: 1000px) {
   .header h1 {
     padding: 0 60px 0 10px;
   }
@@ -147,18 +147,40 @@
   .header ul li:hover {
     background-color: var(--header-fg-color);
   }
+
+  .cta {
+    margin: 0 auto;
+    max-width: 250px;
+  }
 }
 
-@media screen and (max-width: 591px) {
+@media screen and (max-width: 687px) {
   .header ul {
     top: 116px;
     height: calc(100vh - 116px);
   }
 }
 
-@media screen and (max-width: 354px) {
+@media screen and (max-width: 428px) {
   .header ul {
     top: 154px;
     height: calc(100vh - 154px);
   }
+}
+
+.cta {
+  display: inline-block;
+  background-color: transparent;
+  border: 3px solid var(--fg-color);
+  color: var(--fg-color);
+  padding: 12px 20px; /* Some padding */
+  font-size: 16px; /* Set a font size */
+  cursor: pointer; /* Mouse pointer on hover */
+  border-radius: 30px;
+}
+
+/* Darker background on mouse-over */
+.cta:hover {
+  background-color: var(--fg-color);
+  color: var(--header-fg-color);
 }

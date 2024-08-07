@@ -1,5 +1,4 @@
 import React from "react";
-import { SEO } from "./SEO";
 
 import styles from "./styles.module.css";
 

@@ -1,4 +1,5 @@
 import * as React from "react";
+import Link from "next/link";
 import * as types from "../lib/types";
 import { PageLink } from "./PageLink";
 
@@ -88,6 +89,16 @@ export const Header: React.FC<{ site: types.Site; pageMap: types.PageMap }> = (
               pageId="a-propos-3ae646cbc3804adb9e977aa25c571321"
               role="menuitem"
             />
+          </li>
+
+          <li>
+            <Link
+              href="https://cal.com/mtc-passy-mont-blanc"
+              role="menuitem"
+              className={styles.cta}
+            >
+              Prendre rendez-vous
+            </Link>
           </li>
         </ul>
       </nav>
