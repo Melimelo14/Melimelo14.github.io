@@ -78,7 +78,7 @@ export const Footer: React.FC<{ site: types.Site; pageMap: types.PageMap }> = (
         <div className={styles.copyright}>
           {config.author}
           <br />
-          Praticienne en soins traditionnels chinois
+          Praticienne en Médecine Traditionnelle Chinoise
           <br />
           {config.phone && (
             <a
