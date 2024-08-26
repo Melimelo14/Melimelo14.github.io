@@ -9,11 +9,11 @@ module.exports = {
 
   // open graph metadata (optional)
   description:
-    "Soins Traditionnels Chinois, 995 route du plateau d'Assy, Passy. Acupressure, Massage, Pharmacopée, Diététique. Du bébé à l'adulte, incluant un accompagnement de la femme enceinte.",
+    "Médecine Traditionnelle Chinoise, 995 route du plateau d'Assy, Passy. Acupressure, Massage, Pharmacopée, Diététique. Du bébé à l'adulte, incluant un accompagnement de la femme enceinte.",
 
   // social usernames (optional)
   facebook: "emilie.meot.mtc.passy",
-  instagram: "https://www.instagram.com/emilie_meot_mtc_passy/",
+  instagram: "https://www.instagram.com/mtc_passy_mont_blanc/",
   phone: "07.67.66.15.50",
 
   // map of notion page IDs to URL paths (optional)
