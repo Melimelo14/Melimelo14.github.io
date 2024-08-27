@@ -6,6 +6,7 @@ import cs from "classnames";
 import { useRouter } from "next/router";
 import { PageBlock } from "notion-types";
 import Cal, { getCalApi } from "@calcom/embed-react";
+import { AppleMap } from "./Map";
 import { event } from "nextjs-google-analytics";
 
 // core notion renderer
@@ -188,6 +189,16 @@ export const NotionPage: React.FC<types.PageProps> = ({
                   calLink="mtc-passy-mont-blanc"
                   style={{ width: "100%", height: "auto", overflow: "scroll" }}
                 />
+              );
+            }
+            if (
+              props.block?.properties?.source?.[0]?.[0] ===
+              "https://maps.app.goo.gl/4SLAhoq8NFsDuEjj7"
+            ) {
+              return (
+                <React.Suspense>
+                  <AppleMap />
+                </React.Suspense>
               );
             }
             return null;

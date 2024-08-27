@@ -5,14 +5,15 @@
   "license": "MIT",
   "scripts": {
     "postinstall": "patch-package",
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "NODE_ENV=development next dev",
+    "build": "NODE_ENV=production next build",
     "start": "next start"
   },
   "sideEffects": false,
   "dependencies": {
     "@calcom/embed-react": "^1.5.0",
     "classnames": "^2.5.1",
+    "mapkit-react": "^1.15.2",
     "next": "^14.2.5",
     "nextjs-google-analytics": "^2.3.3",
     "notion-client": "^6.16.0",
