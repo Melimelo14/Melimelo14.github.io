@@ -64,6 +64,15 @@ export const Header: React.FC<{ site: types.Site; pageMap: types.PageMap }> = (
             />
           </li>
 
+           <li>
+            <PageLink
+              site={site}
+              pageMap={pageMap}
+              pageId="Votre-soin-7fb64c495efe47f5bf9f7f7407dcaac4"
+              role="menuitem"
+            />
+          </li>
+          
           <li>
             <PageLink
               site={site}
