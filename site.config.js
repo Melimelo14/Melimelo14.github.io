@@ -12,7 +12,7 @@ module.exports = {
     "Médecine Traditionnelle Chinoise, 995 route du plateau d'Assy, Passy. Acupressure, Massage, Pharmacopée, Diététique. Du bébé à l'adulte, incluant un accompagnement de la femme enceinte.",
 
   // social usernames (optional)
-  facebook: "emilie.meot.mtc.passy",
+  facebook: "mtc.passy.mont.blanc",
   instagram: "mtc_passy_mont_blanc",
   phone: "07.67.66.15.50",
 
