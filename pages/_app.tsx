@@ -7,6 +7,7 @@ import "react-notion-x/src/styles.css";
 // global style overrides for notion
 import "styles/notion.css";
 import "styles/page-accueil.css";
+import "styles/page-quest-ce-que-la-mtc.css";
 
 import React from "react";
 import { GoogleAnalytics } from "nextjs-google-analytics";

@@ -21,13 +21,12 @@ import * as types from "../lib/types";
 import * as config from "../lib/config";
 
 // components
-import { CustomFont } from "./CustomFont";
 import { Loading } from "./Loading";
 import { Page404 } from "./Page404";
 import { SEO } from "./SEO";
 import { Footer } from "./Footer";
 import { Header } from "./Header";
-// import { Collection } from "./NotionCollection";
+import { Testimonials } from "./Testimonials";
 
 import styles from "./styles.module.css";
 
@@ -169,8 +168,6 @@ export const NotionPage: React.FC<types.PageProps> = ({
         canonicalPageUrl={canonicalPageUrl}
       />
 
-      <CustomFont site={site} />
-
       <Header site={site} pageMap={pageMap} />
 
       <NotionRenderer
@@ -178,7 +175,15 @@ export const NotionPage: React.FC<types.PageProps> = ({
         components={{
           nextImage: Image,
           nextLink: Link,
-          Collection,
+          Collection: (props: any) => {
+            if (
+              props.block?.collection_id ===
+              "b038533a-5aae-4423-bb02-1f4b60681450"
+            ) {
+              return <Testimonials {...props} />;
+            }
+            return <Collection {...props} />;
+          },
           Embed: (props: any) => {
             if (
               props.block?.properties?.source?.[0]?.[0] ===

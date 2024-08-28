@@ -4,7 +4,6 @@ import { SEO } from "./SEO";
 
 import styles from "./styles.module.css";
 import { PageLink } from "./PageLink";
-import { CustomFont } from "./CustomFont";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 
@@ -14,8 +13,6 @@ export const Page404: React.FC<
   return (
     <>
       <SEO site={site} />
-
-      <CustomFont site={site} />
 
       <Header site={site} pageMap={pageMap} />
 
