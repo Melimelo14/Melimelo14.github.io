@@ -64,7 +64,7 @@ export const Header: React.FC<{ site: types.Site; pageMap: types.PageMap }> = (
             />
           </li>
 
-           <li>
+          <li>
             <PageLink
               site={site}
               pageMap={pageMap}
@@ -72,7 +72,7 @@ export const Header: React.FC<{ site: types.Site; pageMap: types.PageMap }> = (
               role="menuitem"
             />
           </li>
-          
+
           <li>
             <PageLink
               site={site}
