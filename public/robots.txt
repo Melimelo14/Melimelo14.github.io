@@ -1,0 +1,9 @@
+//robots.txt
+
+# Block all crawlers for /mentions-lgales
+User-agent: *
+Disallow: /mentions-lgales
+
+# Allow all crawlers
+User-agent: *
+Allow: /

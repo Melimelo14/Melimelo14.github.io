@@ -18,6 +18,10 @@ if (!rootNotionPageId) {
   throw new Error('Config error invalid "rootNotionPageId"');
 }
 
+export const ignoredPageIds = getSiteConfig("ignoredPages", []).map(
+  (id: string) => parsePageId(id, { uuid: true })
+);
+
 export const pageUrlOverrides = cleanPageUrlMap(
   getSiteConfig("pageUrlOverrides", {}) || {},
   "pageUrlOverrides"

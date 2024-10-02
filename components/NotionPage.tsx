@@ -129,11 +129,10 @@ export const NotionPage: React.FC<types.PageProps> = ({
 
   if (config.isDev) {
     console.log("notion page", {
-      isDev: config.isDev,
       title,
       pageId,
-      rootNotionPageId: site.rootNotionPageId,
       recordMap,
+      site,
     });
   }
 

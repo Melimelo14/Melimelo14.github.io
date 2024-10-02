@@ -26,4 +26,14 @@ module.exports = {
     "/approche-energtique-holistique-ca-veut-dire-quoi":
       "a1e7b59642c34336a580b829ce114ddc",
   },
+
+  ignoredPages: [
+    "b3038c95-a555-4b2e-b944-d1d5e85953f7",
+    "d13fe8eb-48b2-444e-8e80-72bfd8335bb3",
+    "fd27775e-1f9e-45c6-bd57-a555a79c2e0e",
+    "1549d28f-0a43-4ef2-a4ba-f1ffd57aaab1",
+    "3f6e9e25-c829-446d-a5fd-2a867cc673bd",
+    "432cf476-6139-4248-b54a-321b58eade12",
+    "10870028-c0ea-4a8c-9739-b8ed32524738",
+  ],
 };

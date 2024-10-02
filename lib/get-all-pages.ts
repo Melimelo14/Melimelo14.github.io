@@ -2,7 +2,7 @@ import pMemoize from "p-memoize";
 import { getAllPagesInSpace } from "notion-utils";
 
 import * as types from "./types";
-import { includeNotionIdInUrls } from "./config";
+import { includeNotionIdInUrls, ignoredPageIds } from "./config";
 import { notion } from "./notion";
 import { getCanonicalPageId } from "./get-canonical-page-id";
 
@@ -19,6 +19,10 @@ export async function getAllPagesImpl(
     null,
     notion.getPage.bind(notion)
   );
+
+  ignoredPageIds.forEach((id) => {
+    delete pageMap[id];
+  });
 
   const canonicalPageMap = Object.keys(pageMap).reduce(
     (map, pageId: string) => {

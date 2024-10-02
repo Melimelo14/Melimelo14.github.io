@@ -22,9 +22,28 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
           page.recordMap.block[pageId]?.value?.last_edited_time
         );
 
+        const priorityProp = Object.entries(
+          Object.values(page.recordMap.collection)[0]!.value.schema
+        ).find(([key, value]) => value.name === "Priority");
+
+        const priority = !priorityProp
+          ? 0.5
+          : Math.max(
+              0,
+              Math.min(
+                1,
+                parseFloat(
+                  page.recordMap.block[pageId]?.value?.properties[
+                    priorityProp[0]
+                  ]?.[0][0] ?? "0.5"
+                )
+              )
+            );
+
         return {
           url,
           lastModified,
+          priority,
         };
       })
     )
