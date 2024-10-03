@@ -27,6 +27,7 @@ export const Header: React.FC<{
         onClick={() => {
           setIsNavExpanded(!isNavExpanded);
         }}
+        aria-label="Expand Navigation Menu"
       >
         {/* icon from heroicons.com */}
         <svg
