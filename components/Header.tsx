@@ -5,9 +5,10 @@ import { PageLink } from "./PageLink";
 
 import styles from "./Header.module.css";
 
-export const Header: React.FC<{ site: types.Site; pageMap: types.PageMap }> = (
-  props
-) => {
+export const Header: React.FC<{
+  site: types.Site;
+  pageMap: types.PageMap;
+}> = (props) => {
   const { site, pageMap } = props;
   const [isNavExpanded, setIsNavExpanded] = React.useState(false);
 

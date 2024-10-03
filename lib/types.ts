@@ -1,6 +1,10 @@
-import { ExtendedRecordMap, PageMap } from "notion-types";
+import { ExtendedRecordMap, PageBlock } from "notion-types";
 
 export * from "notion-types";
+
+export interface PageMap {
+  [pageId: string]: { title: string; canonicalPath: string };
+}
 
 export interface PageError {
   message?: string;
@@ -48,11 +52,6 @@ export interface Site {
 export interface SiteMap {
   site: Site;
   pageMap: PageMap;
-  canonicalPageMap: CanonicalPageMap;
-}
-
-export interface CanonicalPageMap {
-  [canonicalPageId: string]: string;
 }
 
 export interface PageUrlOverridesMap {

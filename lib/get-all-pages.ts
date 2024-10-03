@@ -1,7 +1,7 @@
 import pMemoize from "p-memoize";
-import { getAllPagesInSpace } from "notion-utils";
+import { getAllPagesInSpace, getTextContent } from "notion-utils";
 
-import * as types from "./types";
+import { PageMap } from "./types";
 import { includeNotionIdInUrls, ignoredPageIds } from "./config";
 import { notion } from "./notion";
 import { getCanonicalPageId } from "./get-canonical-page-id";
@@ -12,7 +12,7 @@ export const getAllPages = pMemoize(getAllPagesImpl);
 
 export async function getAllPagesImpl(
   rootNotionPageId: string
-): Promise<Pick<types.SiteMap, "canonicalPageMap" | "pageMap">> {
+): Promise<PageMap> {
   const pageMap = await getAllPagesInSpace(
     rootNotionPageId,
     // @ts-expect-error
@@ -24,41 +24,26 @@ export async function getAllPagesImpl(
     delete pageMap[id];
   });
 
-  const canonicalPageMap = Object.keys(pageMap).reduce(
-    (map, pageId: string) => {
-      const recordMap = pageMap[pageId];
-      if (!recordMap) {
-        throw new Error(`Error loading page "${pageId}"`);
-      }
+  return Object.keys(pageMap).reduce((prev, pageId) => {
+    const recordMap = pageMap[pageId];
+    if (!recordMap) {
+      throw new Error(`Error loading page "${pageId}"`);
+    }
 
-      const canonicalPageId = getCanonicalPageId(pageId, recordMap, {
-        uuid,
-      });
+    const canonicalPageId = getCanonicalPageId(pageId, recordMap, {
+      uuid,
+    });
 
-      if (!canonicalPageId) {
-        return map;
-      }
+    if (Object.values(prev).find((x) => x.canonicalPath === canonicalPageId)) {
+      throw new Error(`Error duplicate canonical page id "${canonicalPageId}"`);
+    }
 
-      if (map[canonicalPageId]) {
-        console.error(
-          "error duplicate canonical page id",
-          canonicalPageId,
-          pageId,
-          map[canonicalPageId]
-        );
-
-        return map;
-      }
-
-      map[canonicalPageId] = pageId;
-
-      return map;
-    },
-    {} as { [canonicalPageId: string]: string }
-  );
-
-  return {
-    pageMap,
-    canonicalPageMap,
-  };
+    prev[pageId] = {
+      canonicalPath: canonicalPageId,
+      title: getTextContent(
+        recordMap.block[pageId].value.properties.title
+      ).trim(),
+    };
+    return prev;
+  }, {} as PageMap);
 }

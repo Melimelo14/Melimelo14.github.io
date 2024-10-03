@@ -1,38 +1,33 @@
-import { ExtendedRecordMap } from "notion-types";
-import { uuidToId, parsePageId, idToUuid } from "notion-utils";
+import { uuidToId, parsePageId } from "notion-utils";
 
-import { Site } from "./types";
-import { includeNotionIdInUrls } from "./config";
-import { getCanonicalPageId } from "./get-canonical-page-id";
-
-// include UUIDs in page URLs during local development but not in production
-// (they're nice for debugging and speed up local dev)
-const uuid = !!includeNotionIdInUrls;
+import { Site, PageMap } from "./types";
 
 export const mapPageUrl =
-  (site: Site, recordMap: ExtendedRecordMap, searchParams: URLSearchParams) =>
+  (site: Site, pageMap: PageMap, searchParams: URLSearchParams) =>
   (pageId = "") => {
+    const pageUuid = parsePageId(pageId, { uuid: true });
+
     if (uuidToId(pageId) === site.rootNotionPageId) {
       return createUrl("/", searchParams);
     } else {
-      return createUrl(
-        `/${getCanonicalPageId(pageId, recordMap, { uuid })}`,
-        searchParams
-      );
+      const canonicalPath = pageMap[pageUuid]?.canonicalPath;
+      return createUrl(`/${canonicalPath}`, searchParams);
     }
   };
 
 export const getCanonicalPageUrl =
-  (site: Site, recordMap: ExtendedRecordMap) =>
+  (site: Site, pageMap: PageMap) =>
   (pageId = "") => {
     const pageUuid = parsePageId(pageId, { uuid: true });
 
     if (uuidToId(pageId) === site.rootNotionPageId) {
       return `https://${site.domain}`;
     } else {
-      return `https://${site.domain}/${getCanonicalPageId(pageUuid, recordMap, {
-        uuid,
-      })}`;
+      const canonicalPath = pageMap[pageUuid]?.canonicalPath;
+      if (!canonicalPath) {
+        throw new Error(`Failed to find canonical page path for "${pageId}"`);
+      }
+      return `https://${site.domain}/${canonicalPath}`;
     }
   };
 

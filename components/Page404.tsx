@@ -7,9 +7,12 @@ import { PageLink } from "./PageLink";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 
-export const Page404: React.FC<
-  Partial<types.PageProps> & { site: types.Site; pageMap: types.PageMap }
-> = ({ site, pageMap, pageId, error }) => {
+export const Page404: React.FC<{
+  pageId?: string;
+  site: types.Site;
+  pageMap: types.PageMap;
+  error?: types.PageError;
+}> = ({ site, pageMap, pageId, error }) => {
   return (
     <>
       <SEO site={site} />

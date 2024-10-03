@@ -8,6 +8,6 @@ export async function getSiteMap(): Promise<types.SiteMap> {
 
   return {
     site,
-    ...(await getAllPages(site.rootNotionPageId)),
+    pageMap: await getAllPages(site.rootNotionPageId),
   };
 }

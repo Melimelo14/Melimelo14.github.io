@@ -49,7 +49,7 @@ export const Testimonials: React.FC<{
     return acc;
   }, [] as { stars: string; Name: string; Text: string }[][]);
 
-  console.log({ collection, testimonialList, props });
+  // console.log({ collection, testimonialList, props });
   return (
     <section className={styles.testimonialSection}>
       <div className="container px-4 mx-auto">

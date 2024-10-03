@@ -5,9 +5,10 @@ import { PageLink } from "./PageLink";
 
 import styles from "./Footer.module.css";
 
-export const Footer: React.FC<{ site: types.Site; pageMap: types.PageMap }> = (
-  props
-) => {
+export const Footer: React.FC<{
+  site: types.Site;
+  pageMap: types.PageMap;
+}> = (props) => {
   const { site, pageMap } = props;
 
   return (

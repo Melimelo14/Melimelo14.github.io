@@ -115,13 +115,7 @@ export const NotionPage: React.FC<types.PageProps> = ({
 
   if (error || !recordMap || !keys.length || !page) {
     return (
-      <Page404
-        site={site}
-        pageId={pageId}
-        error={error}
-        recordMap={recordMap}
-        pageMap={pageMap}
-      />
+      <Page404 site={site} pageId={pageId} error={error} pageMap={pageMap} />
     );
   }
 
@@ -132,6 +126,7 @@ export const NotionPage: React.FC<types.PageProps> = ({
       title,
       pageId,
       recordMap,
+      pageMap,
       site,
     });
   }
@@ -144,10 +139,10 @@ export const NotionPage: React.FC<types.PageProps> = ({
     g.block = page;
   }
 
-  const siteMapPageUrl = mapPageUrl(site, recordMap, searchParams);
+  const siteMapPageUrl = mapPageUrl(site, pageMap, searchParams);
 
   const canonicalPageUrl = !config.isDev
-    ? getCanonicalPageUrl(site, recordMap)(pageId)
+    ? getCanonicalPageUrl(site, pageMap)(pageId)
     : undefined;
 
   const socialImage = mapNotionImageUrl(page.format?.page_cover, page);

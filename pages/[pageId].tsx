@@ -1,18 +1,28 @@
 import React from "react";
+import Head from "next/head";
 import { GetStaticProps } from "next";
-import { domain } from "../lib/config";
+import { domain, redirects } from "../lib/config";
 import { getSiteMap } from "../lib/get-site-map";
 import { resolveNotionPage } from "../lib/resolve-notion-page";
 import { PageProps } from "../lib/types";
 import { NotionPage } from "../components";
 
-export const getStaticProps: GetStaticProps<PageProps> = async (context) => {
+export const getStaticProps: GetStaticProps<
+  PageProps | { redirect: string }
+> = async (context) => {
   const rawPageId = context.params?.pageId;
 
   try {
     if (!rawPageId || Array.isArray(rawPageId)) {
       throw new Error(`Failed to resolve pageId`);
     }
+
+    if (typeof redirects[rawPageId] !== "undefined") {
+      return {
+        props: { redirect: redirects[rawPageId] },
+      };
+    }
+
     const props = await resolveNotionPage(rawPageId);
 
     return {
@@ -31,17 +41,39 @@ export async function getStaticPaths() {
   const siteMap = await getSiteMap();
 
   const ret = {
-    paths: Object.keys(siteMap.canonicalPageMap).map((pageId) => ({
-      params: {
-        pageId,
-      },
-    })),
+    paths: Object.values(siteMap.pageMap)
+      // filter out the root page
+      .filter((page) => page.canonicalPath)
+      .map((page) => ({
+        params: {
+          pageId: page.canonicalPath,
+        },
+      }))
+      .concat(
+        Object.keys(redirects).map((redirect) => ({
+          params: {
+            pageId: redirect,
+          },
+        }))
+      ),
     fallback: false,
   };
 
   return ret;
 }
 
-export default function NotionDomainDynamicPage(props: PageProps) {
+export default function Page(props: PageProps | { redirect: string }) {
+  if ("redirect" in props) {
+    return (
+      <>
+        <Head>
+          <title>Redirecting...</title>
+          <link rel="canonical" href={`/${props.redirect}`} />
+          <meta http-equiv="refresh" content={`0; url=/${props.redirect}`} />
+        </Head>
+        <p>Redirecting...</p>
+      </>
+    );
+  }
   return <NotionPage {...props} />;
 }

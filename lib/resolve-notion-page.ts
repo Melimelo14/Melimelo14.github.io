@@ -12,7 +12,7 @@ export async function resolveNotionPage(
 ): Promise<types.PageProps> {
   let pageId: string;
 
-  const { site, pageMap, canonicalPageMap } = await getSiteMap();
+  const { site, pageMap } = await getSiteMap();
 
   if (rawPageId && rawPageId !== "index" && rawPageId !== config.domain) {
     pageId = parsePageId(rawPageId);
@@ -31,7 +31,10 @@ export async function resolveNotionPage(
     if (!pageId) {
       // handle mapping of user-friendly canonical page paths to Notion page IDs
       // e.g., /developer-x-entrepreneur versus /71201624b204481f862630ea25ce62fe
-      pageId = canonicalPageMap[rawPageId];
+      pageId =
+        Object.keys(pageMap).find(
+          (x) => pageMap[x].canonicalPath === rawPageId
+        ) || "";
 
       if (!pageId) {
         return {

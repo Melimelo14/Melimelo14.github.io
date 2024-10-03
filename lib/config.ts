@@ -39,6 +39,10 @@ export const name: string = getSiteConfig("name");
 export const author: string = getSiteConfig("author");
 export const domain: string = getSiteConfig("domain");
 export const description: string = getSiteConfig("description");
+export const redirects: { [path: string]: string } = getSiteConfig(
+  "redirects",
+  {}
+);
 
 // social accounts
 export const facebook: string | null = getSiteConfig("facebook", null);

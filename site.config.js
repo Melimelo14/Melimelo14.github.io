@@ -18,13 +18,45 @@ module.exports = {
 
   // map of notion page IDs to URL paths (optional)
   // any pages defined here will override their default URL paths
-  // example:
   pageUrlOverrides: {
     "/quest-ce-que-la-medecine-traditionnelle-chinoise":
       "4d3b9b280abb49d5b15152c38d8f2861",
     "/actualites-et-blog": "aa2cafffdfe34e938dbcf3a60915b61b",
-    "/approche-energtique-holistique-ca-veut-dire-quoi":
-      "a1e7b59642c34336a580b829ce114ddc",
+  },
+
+  redirects: {
+    "en-savoir": "en-savoir-plus",
+    "cest-quoi-un-bilan-nergtique": "c-est-quoi-un-bilan-energetique",
+    "approche-energtique-holistique-ca-veut-dire-quoi":
+      "approche-energetique-holistique-ca-veut-dire-quoi",
+    "a-fonctionne-comment-lacupuncture": "ca-fonctionne-comment-l-acupuncture",
+    "tisanes-dhiver": "tisanes-d-hiver",
+    "menus-de-ftes-et-dittique-chinoise":
+      "menus-de-fetes-et-dietetique-chinoise",
+    "mentions-lgales": "mentions-legales",
+    "yin-yang-lutilit-du-concept": "yin-yang-l-utilite-du-concept",
+    "rendez-vous-confirm": "rendez-vous-confirme",
+    "les-5-lments-ou-5-mouvements": "les-5-elements-ou-5-mouvements",
+    "la-mdecine-traditionnelle-chinoise-a-marche":
+      "la-medecine-traditionnelle-chinoise-ca-marche",
+    "syndrome-prmenstruel-et-rgles-douloureuses":
+      "syndrome-premenstruel-et-regles-douloureuses",
+    "soutenir-sa-fertilit-avec-la-mtc": "soutenir-sa-fertilite-avec-la-mtc",
+    "les-rgles-trop-abondantes-en-mdecine-chinoise":
+      "les-regles-trop-abondantes-en-medecine-chinoise",
+    "les-troubles-digestifs-du-bb-en-mtc":
+      "les-troubles-digestifs-du-bebe-en-mtc",
+    "les-inconforts-de-la-mnopause": "les-inconforts-de-la-menopause",
+    "leczma-de-lenfant-en-mtc": "l-eczema-de-l-enfant-en-mtc",
+    "jai-bien-mang-jai-bien-bu-acupression-post-ftes":
+      "j-ai-bien-mange-j-ai-bien-bu-acupression-post-fetes",
+    "cest-le-printemps": "c-est-le-printemps",
+    "a-propos": "en-savoir-plus",
+    "qu-est-ce-que-la-mtc": "quest-ce-que-la-medecine-traditionnelle-chinoise",
+    "qui-suis-je": "en-savoir-plus",
+    "rdv-et-infos-pratiques": "",
+    "rendez-vous-et-infos-pratiques": "",
+    "votre-soin-individualise": "",
   },
 
   ignoredPages: [
