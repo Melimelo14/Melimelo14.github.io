@@ -1,6 +1,6 @@
-# Block all crawlers for /mentions-lgales
+# Block all crawlers for /mentions-legales
 User-agent: *
-Disallow: /mentions-lgales
+Disallow: /mentions-legales
 
 # Allow all crawlers
 User-agent: *
