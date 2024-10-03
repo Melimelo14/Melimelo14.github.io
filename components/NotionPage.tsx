@@ -167,7 +167,7 @@ export const NotionPage: React.FC<types.PageProps> = ({
       <NotionRenderer
         bodyClassName={cs(styles.notion)}
         components={{
-          nextImage: Image,
+          nextImage: (props: any) => <Image {...props} priority />,
           nextLink: Link,
           Collection: (props: any) => {
             if (

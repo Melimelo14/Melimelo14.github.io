@@ -77,7 +77,12 @@ html {
   font-family: var(--notion-font);
   background: var(--bg-color);
   overflow-x: hidden;
+
   background-image: url("/fleur.png");
+  @supports (background-image: url("/fleur.webp")) {
+    background-image: url("/fleur.webp");
+  }
+
   background-repeat: no-repeat;
   background-size: 800px auto;
   background-position-y: 100px;

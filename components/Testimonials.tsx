@@ -76,6 +76,7 @@ export const Testimonials: React.FC<{
               }
               key={i}
               onClick={() => handleSelect(i)}
+              aria-label={`Testimonial page ${i + 1}`}
             />
           ))}
         </div>

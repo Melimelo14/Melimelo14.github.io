@@ -99,14 +99,12 @@ export const Footer: React.FC<{
             site={site}
             pageMap={pageMap}
             pageId="FAQ-5eae3a3d58e940388866a51e3a01c2a8"
-            role="menuitem"
           />
           <br />
           <PageLink
             site={site}
             pageMap={pageMap}
             pageId="M-diation-protection-des-donn-es-et-mentions-l-gales-8da4703acea74082895bbeb4752c20f2"
-            role="menuitem"
           />
         </div>
       </div>

@@ -18,7 +18,7 @@ export const Header: React.FC<{
         site={site}
         pageMap={pageMap}
         pageId="Accueil-7f9e6130d76940deb467f36d05b17526"
-        role="menuitem"
+        role="link"
       >
         <h1>Médecine Traditionnelle Chinoise - Passy 74</h1>
       </PageLink>
@@ -43,11 +43,12 @@ export const Header: React.FC<{
         </svg>
       </button>
       <nav
+        role="menubar"
         aria-label="Main Menu"
         className={isNavExpanded ? styles.expanded : undefined}
       >
-        <ul role="menubar" id="menu-mtc-main-menu">
-          <li>
+        <ul id="menu-mtc-main-menu" role="none">
+          <li role="none">
             <PageLink
               site={site}
               pageMap={pageMap}
@@ -56,7 +57,7 @@ export const Header: React.FC<{
             />
           </li>
 
-          <li>
+          <li role="none">
             <PageLink
               site={site}
               pageMap={pageMap}
@@ -65,7 +66,7 @@ export const Header: React.FC<{
             />
           </li>
 
-          <li>
+          <li role="none">
             <PageLink
               site={site}
               pageMap={pageMap}
@@ -74,7 +75,7 @@ export const Header: React.FC<{
             />
           </li>
 
-          <li>
+          <li role="none">
             <PageLink
               site={site}
               pageMap={pageMap}
@@ -83,7 +84,7 @@ export const Header: React.FC<{
             />
           </li>
 
-          <li>
+          <li role="none">
             <PageLink
               site={site}
               pageMap={pageMap}
@@ -92,7 +93,7 @@ export const Header: React.FC<{
             />
           </li>
 
-          <li>
+          <li role="none">
             <PageLink
               site={site}
               pageMap={pageMap}
@@ -101,7 +102,7 @@ export const Header: React.FC<{
             />
           </li>
 
-          <li>
+          <li role="none">
             <Link
               href="https://cal.com/mtc-passy-mont-blanc"
               role="menuitem"
