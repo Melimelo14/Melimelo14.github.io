@@ -50,7 +50,7 @@ export const SEO: React.FC<{
         "@context": "https://schema.org",
         "@type": "TraditionalChinese",
         "name": "${site.name}",
-        "alternateName": ["Emilie Meot Médecine Chinoise", "${site.author}"],
+        "alternateName": ["Emilie Meot - Médecine Chinoise", "${site.author}"],
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "995 Route du plateau d'Assy",
@@ -60,7 +60,7 @@ export const SEO: React.FC<{
         },
         "email": "mtc.passymontblanc@gmail.com",
         "telePhone": "+33766651550",
-        "url" : "https://${site.domain}"
+        "url" : "https://${site.domain}",
         "paymentAccepted": [ "cash", "check", "credit card" ],
         "openingHours": "Mo,Tu,We,Th 09:00-17:00",
         "openingHoursSpecification": [ {
