@@ -45,6 +45,16 @@ export const SEO: React.FC<{
         <meta property="twitter:domain" content={site.domain} />
       ) : null}
 
+      <script type="application/ld+json">
+        {`{
+          "@context" : "https://schema.org",
+          "@type" : "WebSite",
+          "name" : "${site.name}",
+          "alternateName": ["Emilie Meot Médecine Chinoise", Emilie Meot"],
+          "url" : "https://${site.domain}"
+        }`}
+      </script>
+
       {image ? (
         <>
           <meta name="twitter:card" content="summary_large_image" />
