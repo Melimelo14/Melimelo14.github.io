@@ -47,12 +47,40 @@ export const SEO: React.FC<{
 
       <script type="application/ld+json">
         {`{
-          "@context" : "https://schema.org",
-          "@type" : "WebSite",
-          "name" : "${site.name}",
-          "alternateName": ["Emilie Meot Médecine Chinoise", "${site.author}"],
-          "url" : "https://${site.domain}"
-        }`}
+        "@context": "https://schema.org",
+        "@type": "TraditionalChinese",
+        "name": "${site.name}",
+        "alternateName": ["Emilie Meot Médecine Chinoise", "${site.author}"],
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "995 Route du plateau d'Assy",
+          "addressLocality": "Passy",
+          "addressRegion": "",
+          "postalCode": "74190"
+        },
+        "email": "mtc.passymontblanc@gmail.com",
+        "telePhone": "+33766651550",
+        "url" : "https://${site.domain}"
+        "paymentAccepted": [ "cash", "check", "credit card" ],
+        "openingHours": "Mo,Tu,We,Th 09:00-17:00",
+        "openingHoursSpecification": [ {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday"
+          ],
+          "opens": "09:00",
+          "closes": "17:00"
+        } ],
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "45.924810",
+          "longitude": "6.681120"
+        },
+        "priceRange":"$$"
+      }`}
       </script>
 
       {image ? (
