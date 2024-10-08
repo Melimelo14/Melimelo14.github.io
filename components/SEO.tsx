@@ -55,7 +55,7 @@ export const SEO: React.FC<{
           "@type": "PostalAddress",
           "streetAddress": "995 Route du plateau d'Assy",
           "addressLocality": "Passy",
-          "addressCountry": "France",
+          "addressCountry": "FR",
           "postalCode": "74190"
         },
         "email": "mtc.passymontblanc@gmail.com",
