@@ -38,6 +38,7 @@ export interface Model {
 export interface Site {
   name: string;
   domain: string;
+  author: string;
 
   rootNotionPageId: string;
 

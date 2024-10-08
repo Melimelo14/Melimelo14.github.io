@@ -50,7 +50,7 @@ export const SEO: React.FC<{
           "@context" : "https://schema.org",
           "@type" : "WebSite",
           "name" : "${site.name}",
-          "alternateName": ["Emilie Meot Médecine Chinoise", Emilie Meot"],
+          "alternateName": ["Emilie Meot Médecine Chinoise", "${site.author}"],
           "url" : "https://${site.domain}"
         }`}
       </script>

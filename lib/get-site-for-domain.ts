@@ -7,5 +7,6 @@ export function getSiteForDomain(domain: string): types.Site {
     name: config.name,
     rootNotionPageId: config.rootNotionPageId,
     description: config.description,
+    author: config.author,
   };
 }
