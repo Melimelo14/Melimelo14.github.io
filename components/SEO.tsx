@@ -48,7 +48,7 @@ export const SEO: React.FC<{
       <script type="application/ld+json">
         {`{
         "@context": "https://schema.org",
-        "@type": "TraditionalChinese",
+        "@type": "MedicalBusiness",
         "name": "${site.name}",
         "alternateName": ["Emilie Meot - Médecine Chinoise", "${site.author}"],
         "address": {
