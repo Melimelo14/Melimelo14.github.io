@@ -203,7 +203,10 @@ export const NotionPage: React.FC<types.PageProps> = ({
           PageLink: ({ href, ...props }: { href: string } & any) => {
             if (href === "/undefined") {
               if (config.isServer || config.isDev) {
-                console.error("404 page link", props.children?.props?.children);
+                console.error(
+                  `404 page link in ${title} (${pageId})`,
+                  props.children?.props?.children
+                );
               }
               return props.children;
             }
