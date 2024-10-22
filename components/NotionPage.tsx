@@ -121,7 +121,7 @@ export const NotionPage: React.FC<types.PageProps> = ({
 
   const title = getBlockTitle(page, recordMap) || site.name;
 
-  if (config.isDev) {
+  if (!config.isServer && config.isDev) {
     console.log("notion page", {
       title,
       pageId,
@@ -129,9 +129,7 @@ export const NotionPage: React.FC<types.PageProps> = ({
       pageMap,
       site,
     });
-  }
 
-  if (!config.isServer && config.isDev) {
     // add important objects to the window global for easy debugging
     const g = window as any;
     g.pageId = pageId;
@@ -202,31 +200,15 @@ export const NotionPage: React.FC<types.PageProps> = ({
             }
             return null;
           },
-          PageLink: Link,
-          // PageLink: ({
-          //   href,
-          //   as,
-          //   passHref,
-          //   prefetch,
-          //   replace,
-          //   scroll,
-          //   shallow,
-          //   locale,
-          //   ...props
-          // }) => (
-          //   <Link
-          //     href={href}
-          //     as={as}
-          //     passHref={passHref}
-          //     prefetch={prefetch}
-          //     replace={replace}
-          //     scroll={scroll}
-          //     shallow={shallow}
-          //     locale={locale}
-          //   >
-          //     <a {...props} />
-          //   </Link>
-          // ),
+          PageLink: ({ href, ...props }: { href: string } & any) => {
+            if (href === "/undefined") {
+              if (config.isServer || config.isDev) {
+                console.error("404 page link", props.children?.props?.children);
+              }
+              return props.children;
+            }
+            return <Link href={href} {...props} />;
+          },
           // code: Code,
           // collection: (props) => (
           //   <Collection {...props} recordMap={recordMap} />
