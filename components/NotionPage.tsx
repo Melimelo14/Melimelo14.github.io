@@ -29,6 +29,7 @@ import { Header } from "./Header";
 import { Testimonials } from "./Testimonials";
 
 import styles from "./styles.module.css";
+import { ErrorBoundary } from "next/dist/client/components/error-boundary";
 
 // const Code = dynamic(() =>
 //   import('react-notion-x').then((notion) => notion.Code)
@@ -193,9 +194,11 @@ export const NotionPage: React.FC<types.PageProps> = ({
               "https://maps.app.goo.gl/4SLAhoq8NFsDuEjj7"
             ) {
               return (
-                <React.Suspense>
-                  <AppleMap />
-                </React.Suspense>
+                <ErrorBoundary errorComponent={() => null}>
+                  <React.Suspense>
+                    <AppleMap />
+                  </React.Suspense>
+                </ErrorBoundary>
               );
             }
             return null;
