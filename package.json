@@ -11,22 +11,25 @@
   },
   "sideEffects": false,
   "dependencies": {
-    "@calcom/embed-react": "^1.5.1",
+    "@babel/runtime": "^7.29.7",
+    "@calcom/embed-react": "^1.5.3",
+    "@types/react-dom": "^18.3.7",
     "classnames": "^2.5.1",
-    "mapkit-react": "^1.15.2",
-    "next": "^14.2.5",
+    "mapkit-react": "^1.16.1",
+    "next": "^14.2.35",
     "nextjs-google-analytics": "^2.3.7",
-    "notion-client": "^6.16.0",
-    "notion-utils": "^6.16.0",
+    "notion-client": "^7.10.0",
+    "notion-types": "^7.10.0",
+    "notion-utils": "^7.10.0",
     "p-memoize": "^7.1.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-notion-x": "^6.16.0"
+    "react-notion-x": "^7.10.0"
   },
   "devDependencies": {
-    "@types/node": "^20.9.4",
-    "@types/react": "^18.3.3",
-    "patch-package": "^8.0.0",
-    "typescript": "^5.6.2"
+    "@types/node": "^20.19.41",
+    "@types/react": "^18.3.30",
+    "patch-package": "^8.0.1",
+    "typescript": "^5.9.3"
   }
 }

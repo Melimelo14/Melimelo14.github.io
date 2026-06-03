@@ -10,7 +10,7 @@ export const mapPageUrl =
     if (uuidToId(pageId) === site.rootNotionPageId) {
       return createUrl("/", searchParams);
     } else {
-      const canonicalPath = pageMap[pageUuid]?.canonicalPath;
+      const canonicalPath = pageUuid && pageMap[pageUuid]?.canonicalPath;
       return createUrl(`/${canonicalPath}`, searchParams);
     }
   };
@@ -23,7 +23,7 @@ export const getCanonicalPageUrl =
     if (uuidToId(pageId) === site.rootNotionPageId) {
       return `https://${site.domain}`;
     } else {
-      const canonicalPath = pageMap[pageUuid]?.canonicalPath;
+      const canonicalPath = pageUuid && pageMap[pageUuid]?.canonicalPath;
       if (!canonicalPath) {
         throw new Error(`Failed to find canonical page path for "${pageId}"`);
       }

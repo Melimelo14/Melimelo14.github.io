@@ -9,18 +9,20 @@ import { parsePageId } from "notion-utils";
 import { getSiteConfig, getEnv } from "./get-config-value";
 import { PageUrlOverridesMap, PageUrlOverridesInverseMap } from "./types";
 
-export const rootNotionPageId: string = parsePageId(
+const parsedRootNotionPageId = parsePageId(
   getSiteConfig("rootNotionPageId"),
   { uuid: false }
 );
 
-if (!rootNotionPageId) {
+if (!parsedRootNotionPageId) {
   throw new Error('Config error invalid "rootNotionPageId"');
 }
 
-export const ignoredPageIds = getSiteConfig("ignoredPages", []).map(
-  (id: string) => parsePageId(id, { uuid: true })
-);
+export const rootNotionPageId: string = parsedRootNotionPageId;
+
+export const ignoredPageIds: string[] = getSiteConfig("ignoredPages", [])
+  .map((id: string) => parsePageId(id, { uuid: true }))
+  .filter((id: string | undefined): id is string => !!id);
 
 export const pageUrlOverrides = cleanPageUrlMap(
   getSiteConfig("pageUrlOverrides", {}) || {},

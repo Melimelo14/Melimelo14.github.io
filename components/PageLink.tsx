@@ -17,8 +17,7 @@ export const PageLink: React.FC<
 > = (props) => {
   const { site, pageMap, pageId, ref, children, ...rest } = props;
   const uuid = parsePageId(pageId);
-
-  const page = pageMap[uuid];
+  const page = uuid ? pageMap[uuid] : undefined;
 
   if (!page) {
     throw new Error(`Failed to find page "${pageId}" in site map`);

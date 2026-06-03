@@ -10,7 +10,7 @@ import * as config from "./config";
 export async function resolveNotionPage(
   rawPageId?: string
 ): Promise<types.PageProps> {
-  let pageId: string;
+  let pageId: string | undefined;
 
   const { site, pageMap } = await getSiteMap();
 

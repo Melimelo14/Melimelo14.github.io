@@ -1,9 +1,14 @@
 import pMemoize from "p-memoize";
-import { getAllPagesInSpace, getTextContent } from "notion-utils";
+import {
+  getAllPagesInSpace,
+  getBlockValue,
+  getPageProperty,
+  getTextContent,
+} from "notion-utils";
 
 import { PageMap } from "./types";
 import { includeNotionIdInUrls, ignoredPageIds } from "./config";
-import { notion } from "./notion";
+import { getPage } from "./notion";
 import { getCanonicalPageId } from "./get-canonical-page-id";
 
 const uuid = !!includeNotionIdInUrls;
@@ -17,7 +22,8 @@ export async function getAllPagesImpl(
     rootNotionPageId,
     // @ts-expect-error
     null,
-    notion.getPage.bind(notion)
+    getPage,
+    { concurrency: 1 }
   );
 
   ignoredPageIds.forEach((id) => {
@@ -38,11 +44,21 @@ export async function getAllPagesImpl(
       throw new Error(`Error duplicate canonical page id "${canonicalPageId}"`);
     }
 
+    const block = getBlockValue(recordMap.block[pageId]);
+    if (!block) {
+      throw new Error(`Missing block for page "${pageId}"`);
+    }
+    let priority = parseFloat(
+      getPageProperty("Priority", block, recordMap) ?? "0.5"
+    );
+    if (isNaN(priority)) priority = 0.5;
+    priority = Math.max(0, Math.min(1, priority));
+
     prev[pageId] = {
       canonicalPath: canonicalPageId,
-      title: getTextContent(
-        recordMap.block[pageId].value.properties.title
-      ).trim(),
+      title: getTextContent(block.properties?.title).trim(),
+      lastEditedTime: block.last_edited_time,
+      priority,
     };
     return prev;
   }, {} as PageMap);

@@ -1,5 +1,10 @@
 import { ExtendedRecordMap } from "notion-types";
-import { parsePageId, uuidToId, getTextContent } from "notion-utils";
+import {
+  parsePageId,
+  uuidToId,
+  getTextContent,
+  getBlockValue,
+} from "notion-utils";
 
 import { inversePageUrlOverrides, rootNotionPageId } from "./config";
 import { Block } from "./types";
@@ -35,7 +40,7 @@ const getCanonicalPageIdImpl = (
   if (!pageId || !recordMap) throw new Error("Invalid arguments");
 
   const id = uuidToId(pageId);
-  const block = recordMap.block[pageId]?.value;
+  const block = getBlockValue(recordMap.block[pageId]);
 
   if (block) {
     const slug = normalizeTitle(getBlockTitle(block));

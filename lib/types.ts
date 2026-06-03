@@ -3,7 +3,12 @@ import { ExtendedRecordMap, PageBlock } from "notion-types";
 export * from "notion-types";
 
 export interface PageMap {
-  [pageId: string]: { title: string; canonicalPath: string };
+  [pageId: string]: {
+    title: string;
+    canonicalPath: string;
+    lastEditedTime?: number;
+    priority?: number;
+  };
 }
 
 export interface PageError {

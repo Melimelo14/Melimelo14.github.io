@@ -18,13 +18,14 @@ export const Testimonials: React.FC<{
     return null;
   }
 
-  const collection = ctx.recordMap.collection[collectionId];
-  const collectionView = ctx.recordMap.collection_view[collectionViewId];
+  const collection = ctx.recordMap.collection[collectionId] as any;
+  const collectionView = ctx.recordMap.collection_view[
+    collectionViewId
+  ] as any;
 
   const properties = collection.value.schema;
 
   const items: { stars: string; Name: string; Text: string }[] =
-    // @ts-ignore
     collectionView.value.page_sort
       .map((id: any) => {
         return ctx.recordMap.block[id];
